@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Home</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Edu+AU+VIC+WA+NT+Dots:wght@400..700&family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+        <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+            integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65"
+            crossorigin="anonymous"
+        >
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+            integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+            crossorigin="anonymous"
+            referrerpolicy="no-referrer"
+        >
+        <link href="cart_page.css" rel="stylesheet">
+        <link href="css/style.css" rel="stylesheet">
+    </head>
+    <body>
+        <header>
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-12">
+                        <nav class="navbar navbar-expand-lg fixed-top custom-navbar">
+                            <div class="container-fluid">
+                                <a class="navbar-brand me-auto" href="index.html">FlowerWorld</a>
+                                <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar"
+                                    aria-labelledby="offcanvasNavbarLabel">
+                                    <div class="offcanvas-header">
+                                        <h5 class="offcanvas-title" id="offcanvasNavbarLabel">FlowerWorld</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="offcanvas"
+                                            aria-label="Close"></button>
+                                    </div>
+                                    <div class="offcanvas-body">
+                                        <ul class="navbar-nav justify-content-center flex-grow-1 pe-3">
+                                            <li class="nav-item me-3">
+                                                <a class="nav-link active custom-nav-link" aria-current="page"
+                                                    href="index.html">Home</a>
+                                            </li>
+                                            <li class="nav-item me-3">
+                                                <a class="nav-link custom-nav-link" href="about.html">About</a>
+                                            </li>
+                                            <li class="nav-item me-3">
+                                                <a class="nav-link custom-nav-link" href="./contact.html">Contact Us</a>
+                                            </li>
+                                            <li class="nav-item me-3">
+                                                <a class="nav-link custom-nav-link" id="seeOrdersNav" href="./orders.html">See Orders</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+    
+                                <div class="me-4">
+                                    <i class="fa-solid fa-cart-shopping" onclick="location.href='cart_page.html'"></i>
+                                </div>
+    
+                                <a href="./login.html" class="btn btn-outline-light login-button">Login</a>
+                                <a href="./register.html" class="btn btn-outline-light register-button">Register</a>
+    
+                                <a href="./profile.html" class="btn btn-outline-light profile-link d-none profile-button">Profile</a>
+                                <a onclick="handleLogout()" class="btn btn-outline-light logout-button d-none logout-button">Logout</a>
+        
+                                <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas"
+                                    data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
+                                    <span class="navbar-toggler-icon"></span>
+                                </button>
+                            </div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <section class="h-100 h-custom">
+            <div class="container h-100">
+                <div class="row d-flex justify-content-center align-items-start h-100">
+                    <div class="col-md-8">
+                        <div class="card shopping-cart" style="border-radius: 15px;">
+                            <div class="card-body" style="max-height: 700px; overflow-y: auto;">
+                                <h3 class="mb-5 pt-2 text-center fw-bold text-uppercase">Your Products</h3>
+                                <div id="flowers-container">
+                                    <!-- Product items will be rendered here dynamically -->
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="card shopping-cart" style="border-radius: 15px;">
+                            <div class="card-body">
+                                <h3 class="mb-5 pt-2 text-center fw-bold text-uppercase">Summary</h3>
+                                <div class="d-flex justify-content-between p-2 mb-2 bg-primary text-white">
+                                    <h5 class="text-uppercase">Total</h5>
+                                    <h5 class="total-amount">0$</h5>
+                                </div>
+                                <div class="d-flex justify-content-center mt-4">
+                                    <a href="checkout.html" class="btn btn-success" style="width: 100%;">Proceed to Checkout</a>
+                                </div>
+                                <div class="d-flex justify-content-center mt-2">
+                                    <a href="index.html" class="btn btn-secondary" style="width: 100%;">Back to Shopping</a>
+                                </div>                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    
+    
+
+        <footer class="gi-footer mt-5">
+            <div class="footer-container">
+                <div class="footer-top py-5">
+                    <div class="container">
+                        <div class="row">
+                            <!-- Company Info -->
+                            <div class="col-sm-12 col-lg-3 gi-footer-cat mb-4">
+                                <div class="gi-footer-widget gi-footer-company">
+                                    <h1 style="color: #5CAF90;">FlowerWorld</h1>
+                                    <p class="gi-footer-detail">
+                                        Grabit is the biggest market of grocery products. Get your
+                                    daily needs from our store.
+                                    </p>
+                                    <div class="gi-app-store">
+                                        <a href="#" class="footer-href">
+                                            <img src="./image/playStore.png" class="android img-fluid" alt="android">
+                                        </a>
+                                        <a href="#" class="footer-href">
+                                            <img src="./image/appStore.png" class="apple img-fluid" alt="apple">
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Company -->
+                            <div class="col-sm-12 col-lg-3 mb-4">
+                                <h4 class="gi-footer-heading">Company</h4>
+                                <hr>
+                                <ul class="list-unstyled">
+                                    <li>
+                                        <a href="about-us.html" class="footer-href">About us</a>
+                                    </li>
+                                    <li>
+                                        <a href="orders.html" class="footer-href">Delivery</a>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="footer-href">Legal Notice</a>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="footer-href">Terms & Conditions</a>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="footer-href">Secure payment</a>
+                                    </li>
+                                    <li>
+                                        <a href="contact.html" class="footer-href">Contact us</a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <!-- Account -->
+                            <div class="col-sm-12 col-lg-3 mb-4">
+                                <h4 class="gi-footer-heading">Account</h4>
+                                <hr>
+                                <ul class="list-unstyled">
+                                    <li>
+                                        <a href="login.html" class="footer-href">Sign In</a>
+                                    </li>
+                                    <li>
+                                        <a href="register.html" class="footer-href">Sign Up</a>
+                                    </li>
+                                    <li>
+                                        <a href="orders.html" class="footer-href">View Orders</a>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="footer-href">Return Policy</a>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="footer-href">Affiliate Program</a>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="footer-href">Payments</a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="col-sm-12 col-lg-3 mb-4">
+                                <h4 class="gi-footer-heading">Contact</h4>
+                                <hr>
+                                <ul class="list-unstyled">
+                                    <li>
+                                        <i class="fas fa-map-marker-alt"></i> Rangpur, Dhaka, Bangladesh.
+                                    </li>
+                                    <li>
+                                        <i class="fas fa-phone-alt"></i>
+                                        <a href="tel:+8801759381907" class="footer-href">01759381907</a>
+                                    </li>
+                                    <li>
+                                        <i class="fas fa-envelope"></i>
+                                        <a href="mailto:example@email.com" class="footer-href">example@email.com</a>
+                                    </li>
+                                </ul>
+                                <div class="gi-footer-social">
+                                    <a href="#" class="me-2 footer-href">
+                                        <i class="fab fa-facebook"></i>
+                                    </a>
+                                    <a href="#" class="me-2 footer-href">
+                                        <i class="fab fa-twitter"></i>
+                                    </a>
+                                    <a href="#" class="me-2 footer-href">
+                                        <i class="fab fa-linkedin"></i>
+                                    </a>
+                                    <a href="#" class="footer-href">
+                                        <i class="fab fa-instagram"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        
+        <script>
+            const cartApiBaseUrl = "https://flowerworld-modified.onrender.com/orders/carts/";
+            async function fetchCartItems() {
+                const token = localStorage.getItem("token");
+                if (!token) {
+                    alert("You are not logged in. Please log in to view your cart.");
+                    return;
+                }
+                try {
+                    const response = await fetch(cartApiBaseUrl, {
+                        method: "GET",
+                        headers: {
+                            "Authorization": `Token ${token}`,
+                            "Content-Type": "application/json"
+                        }
+                    });
+                    if (!response.ok) {
+                        throw new Error(`Failed to fetch cart items. Status: ${response.status}`);
+                    }
+                    const cartData = await response.json();
+                    console.log("Cart Data:", cartData);
+                    if (Array.isArray(cartData) && cartData.length > 0) {
+                        const activeCart = cartData[0];
+                        renderCartItems(activeCart.id, activeCart.items || []);
+                        updateTotal(activeCart.grand_total || 0);
+                    } else {
+                        renderCartItems(null, []);
+                    }
+                } catch (error) {
+                    console.error("Error fetching cart items:", error);
+                    alert("An error occurred while fetching your cart. Please try again later.");
+                }
+            }
+        
+            function renderCartItems(cartId, items) {
+                const productsContainer = document.querySelector("#flowers-container");
+                if (!productsContainer) {
+                    console.error("Products container element not found in the DOM.");
+                    return;
+                }
+        
+                productsContainer.innerHTML = "";
+                if (!Array.isArray(items) || items.length === 0) {
+                    productsContainer.innerHTML = "<p>Your cart is empty.</p>";
+                    return;
+                }
+                const productHTML = items.map(item => `
+                    <div class="d-flex align-items-center mb-5">
+                        <div class="flex-shrink-0">
+                            <img src="${item.image_url.startsWith('/') 
+                                ? 'https://flowerworld-modified.onrender.com' + item.image_url 
+                                : item.image_url}" 
+                                class="img-fluid" 
+                                style="width: 150px;" 
+                                alt="${item.flower_name || 'Product'}">
+                        </div>
+                        <div class="flex-grow-1 ms-3">
+                            <a href="#" class="float-end" onclick="removeItem(${cartId}, '${item.id}')">
+                                <i class="fa-solid fa-trash" style="color: red;"></i>
+                            </a>
+                            <h5 class="text-primary">${item.flower_name || 'Unnamed Product'}</h5>
+                            <h6 style="color: #9e9e9e;">Stock: ${item.stock || 'N/A'}</h6>
+                            <div class="d-flex align-items-center">
+                                <p class="fw-bold mb-0 me-5 pe-3">${item.price || 0}$</p>
+                                <div class="def-number-input number-input safari_only">
+                                    <button onclick="updateQuantity(${cartId}, '${item.id}', -1)" class="minus"></button>
+                                    <input class="quantity fw-bold bg-body-tertiary text-body" min="0" name="quantity" value="${item.quantity || 0}" type="number" readonly>
+                                    <button onclick="updateQuantity(${cartId}, '${item.id}', 1)" class="plus"></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `).join("");
+                productsContainer.innerHTML = productHTML;
+            }
+
+            function updateTotal(total) {
+                const totalAmountElement = document.querySelector(".total-amount");
+                if (!totalAmountElement) {
+                    console.error("Total amount element not found in the DOM.");
+                    return;
+                }
+                totalAmountElement.textContent = `${total}$`;
+            }
+            async function removeItem(cartId, itemId) {
+                const token = localStorage.getItem("token");
+                if (!cartId || !itemId) {
+                    console.error("Invalid cart ID or item ID for removal.");
+                    return;
+                }
+                try {
+                    const response = await fetch(`${cartApiBaseUrl}${cartId}/items/${itemId}/`, {
+                        method: "DELETE",
+                        headers: {
+                            "Authorization": `Token ${token}`,
+                            "Content-Type": "application/json"
+                        }
+                    });
+                    if (!response.ok) {
+                        throw new Error(`Failed to remove item. Status: ${response.status}`);
+                    }
+                    alert("Item removed successfully.");
+                    fetchCartItems();
+                } catch (error) {
+                    console.error("Error removing item:", error);
+                    alert("An error occurred while removing the item. Please try again.");
+                }
+            }
+
+            async function updateQuantity(cartId, itemId, change) {
+                const token = localStorage.getItem("token");
+                if (!cartId || !itemId) {
+                    console.error("Invalid cart ID or item ID for quantity update.");
+                    return;
+                }
+                try {
+                    const itemDetailsResponse = await fetch(`${cartApiBaseUrl}${cartId}/items/${itemId}/`, {
+                        method: "GET",
+                        headers: {
+                            "Authorization": `Token ${token}`,
+                            "Content-Type": "application/json"
+                        },
+                    });
+                    if (!itemDetailsResponse.ok) {
+                        throw new Error("Failed to fetch item details.");
+                    }
+                    const itemDetails = await itemDetailsResponse.json();
+                    const currentQuantity = itemDetails.quantity;
+                    const stock = itemDetails.stock;
+                    const newQuantity = currentQuantity + change;
+                    if (newQuantity < 1) {
+                        alert("Quantity cannot be less than 1.");
+                        return;
+                    }
+                    if (newQuantity > stock) {
+                        alert(`Quantity cannot exceed available stock (${stock}).`);
+                        return;
+                    }
+                    const response = await fetch(`${cartApiBaseUrl}${cartId}/items/${itemId}/`, {
+                        method: "PATCH",
+                        headers: {
+                            "Authorization": `Token ${token}`,
+                            "Content-Type": "application/json",
+                        },
+                        body: JSON.stringify({ quantity: newQuantity }),
+                    });
+                    if (!response.ok) {
+                        const errorDetails = await response.text();
+                        console.error("Failed to update quantity:", errorDetails);
+                        throw new Error(`Failed to update quantity. Status: ${response.status}`);
+                    }
+                    fetchCartItems();
+                } catch (error) {
+                    console.error("Error updating quantity:", error);
+                    alert("An error occurred while updating the quantity. Please try again.");
+                }
+            }
+            document.addEventListener("DOMContentLoaded", fetchCartItems);
+        </script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+        <script src="js/auth.js"></script>
+        <script src="js/flowers.js"></script>
+    </body>
+</html>

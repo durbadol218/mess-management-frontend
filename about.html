@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Edu+AU+VIC+WA+NT+Dots:wght@400..700&family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+        integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="css/style.css" rel="stylesheet">
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-12">
+                    <nav class="navbar navbar-expand-lg fixed-top custom-navbar">
+                        <div class="container-fluid">
+                            <a class="navbar-brand me-auto" href="index.html">Amar Mess</a>
+                            <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar"
+                                aria-labelledby="offcanvasNavbarLabel">
+                                <div class="offcanvas-header">
+                                    <h5 class="offcanvas-title" id="offcanvasNavbarLabel">AmarMess</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="offcanvas"
+                                        aria-label="Close"></button>
+                                </div>
+                                <div class="offcanvas-body">
+                                    <ul class="navbar-nav justify-content-center flex-grow-1 pe-3">
+                                        <li class="nav-item me-3">
+                                            <a class="nav-link active custom-nav-link" aria-current="page"
+                                                href="index.html">Home</a>
+                                        </li>
+                                        <li class="nav-item me-3">
+                                            <a class="nav-link custom-nav-link" href="about.html">About</a>
+                                        </li>
+                                        <li class="nav-item me-3">
+                                            <a class="nav-link custom-nav-link" href="./contact.html">Contact Us</a>
+                                        </li>
+                                        <li class="nav-item me-3">
+                                            <a class="nav-link custom-nav-link" href="./meals.html">Meals Menu</a>
+                                        </li>
+                                        <li class="nav-item me-3">
+                                            <a class="nav-link custom-nav-link" href="./bills.html">Billing</a>
+                                        </li>
+                                        <li class="nav-item me-3">
+                                            <a class="nav-link custom-nav-link" id="seeOrdersNav" href="./orders.html">See Reports</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <div class="me-4">
+                                <i class="fas fa-search" data-bs-toggle="modal" data-bs-target="#searchModal"></i>
+                            </div>
+
+                            <a href="./login.html" class="btn btn-outline-light login-button">Login</a>
+                            <a href="./register.html" class="btn btn-outline-light register-button">Register</a>
+                            <a href="./profile.html" class="btn btn-outline-light profile-link d-none profile-button">Profile</a>
+                            <a onclick="handleLogout()" class="btn btn-outline-light logout-button d-none logout-button">Logout</a>
+    
+                            <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas"
+                                data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
+                                <span class="navbar-toggler-icon"></span>
+                            </button>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+    
+
+    <!-- Search Modal -->
+    <div class="modal fade" id="searchModal" tabindex="-1" aria-labelledby="searchModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="searchModalLabel">Search Services</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="mb-3">
+                        <label for="modal-flower-search" class="form-label">Search by Service Name</label>
+                        <input type="text" id="modal-flower-search" class="form-control"
+                            placeholder="Enter flower name">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" id="apply-filters">Apply Filters</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="about-header">
+        <h1 class="text-center">About Us</h1>
+        <hr class="stylish-hr">
+    </div>
+
+    <div class="container about-container">
+        <div class="row">
+            <div class="col-lg-6 col-sm-12 about-image">
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-lg-6 col-md-6 mb-4">
+                            <div class="image-grid">
+                                <img src="./image/hostel1.jpg" class="img-fluid rounded"
+                                    style="width: 100%; height: auto;">
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-md-6 mb-4">
+                            <div class="image-grid">
+                                <img src="./image/hostel2.jpg" class="img-fluid rounded"
+                                    style="width: 100%; height: auto;">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-lg-6 col-md-6 mb-4">
+                            <div class="image-grid">
+                                <img src="./image/hostel3.jpg" class="img-fluid rounded"
+                                    style="width: 100%; height: auto;">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-6 col-sm-12 about-description">
+                <div class="section-title">
+                    <h2>We're...</h2>
+                    <h3 class="fw-light">We’re here to serve only the best services for you. We're here to help you. We gives you feelings like home.</h3>
+                </div>
+                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
+                    been the industry's standard dummy text ever since the 1500s, when an unknown printer took a
+                    galley of type and scrambled it to make a type specimen book. It has survived not only five
+                    centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
+                </p>
+                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
+                    been the industry's standard dummy text ever since the 1500s, when an unknown printer took a
+                    galley of type and scrambled it to make a type specimen book.</p>
+            </div>
+        </div>
+    </div>
+
+    <hr class="stylish-hr">
+    <div class="container text-center">
+        <div class="services-section">
+            <h2 class="section-title-2 mb-4" style="color: #333;">
+                Our <span style="color: #f0c346;">Services</span>
+            </h2>
+            <p class="lead text-muted" style="max-width: 600px; margin: 0 auto;">
+                Customer service should not be a department. It should be the entire company.
+            </p>
+        </div>
+    </div>
+
+    <section class="about" id="about">
+        <div class="container">
+            <h2>Experience the Mess Life</h2>
+            <div class="about-grid">
+                <div class="about-card">
+                    <div class="icon">🌟</div>
+                    <h3>Prime Location</h3>
+                    <p>Located in the heart of the city, minutes away from major attractions</p>
+                </div>
+                <div class="about-card">
+                    <div class="icon">🏠</div>
+                    <h3>Cozy Rooms</h3>
+                    <p>Clean, comfortable rooms designed for both students and bachelors</p>
+                </div>
+                <div class="about-card">
+                    <div class="icon">👥</div>
+                    <h3>Community</h3>
+                    <p>Meet fellow borders in our communal spaces and organized events</p>
+                </div>
+                <div class="about-card">
+                    <div class="icon">🔒</div>
+                    <h3>Safe & Secure</h3>
+                    <p>24/7 security provided by our dedicated security guard</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <hr class="stylish-hr">
+
+    <section>
+        <div class="container bg-light mt-5">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="testim-bg p-tb-80">
+                        <div class="text-center">
+                            <h2>Parsonal's <span style="color: #f0c346;">Review</span></h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-12">
+                    <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+                        <div class="carousel-indicators">
+                            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                        </div>
+                        <div class="carousel-inner">
+                            <div class="carousel-item active" data-bs-interval="3000">
+                                <div class="content text-center">
+                                    <div class="icon-area animated zoomIn" style="animation-delay: 1s;">
+                                        <i class="fa fa-quote-right"></i>
+                                    </div>
+                                    <div class="img-area animated zoomIn" style="animation-delay: 2s;">
+                                        <img src="./image/man1.jpg" class="d-block w-100" alt="Leandro Perez">
+                                    </div>
+                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla, recusandae fugiat nisi assumenda expedita placeat.</p>
+                                    <h5>Leandro Perez</h5>
+                                    <h6>Doctor</h6>
+                                </div>
+                            </div>
+                            <div class="carousel-item" data-bs-interval="3000">
+                                <div class="content text-center">
+                                    <div class="icon-area animated zoomIn" style="animation-delay: 1s;">
+                                        <i class="fa fa-quote-right"></i>
+                                    </div>
+                                    <div class="img-area animated zoomIn" style="animation-delay: 2s;">
+                                        <img src="./image/man2.jpg" class="d-block w-100" alt="Leo Martinez">
+                                    </div>
+                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla, recusandae fugiat nisi assumenda expedita placeat.</p>
+                                    <h5>Leo Martinez</h5>
+                                    <h6>Student</h6>
+                                </div>
+                            </div>
+                            <div class="carousel-item" data-bs-interval="3000">
+                                <div class="content text-center">
+                                    <div class="icon-area animated zoomIn" style="animation-delay: 1s;">
+                                        <i class="fa fa-quote-right"></i>
+                                    </div>
+                                    <div class="img-area animated zoomIn" style="animation-delay: 2s;">
+                                        <img src="./image/woman1.jpg" class="d-block w-100" alt="Florentino">
+                                    </div>
+                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla, recusandae fugiat nisi assumenda expedita placeat.</p>
+                                    <h5>Florentino</h5>
+                                    <h6>MakeUP Expert</h6>
+                                </div>
+                            </div>
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Footer -->
+    <footer class="gi-footer mt-5">
+        <div class="footer-container">
+            <div class="footer-top py-5">
+                <div class="container">
+                    <div class="row">
+                        <!-- Company Info -->
+                        <div class="col-sm-12 col-lg-3 gi-footer-cat mb-4">
+                            <div class="gi-footer-widget gi-footer-company">
+                                <h1 style="color: #f0c346;">AmarMess</h1>
+                                <div class="gi-app-store">
+                                    <a href="#" class="footer-href">
+                                        <img src="./image/playStore.png" class="android img-fluid" alt="android">
+                                    </a>
+                                    <a href="#" class="footer-href">
+                                        <img src="./image/appStore.png" class="apple img-fluid" alt="apple">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Company -->
+                        <div class="col-sm-12 col-lg-3 mb-4">
+                            <h4 class="gi-footer-heading">Company</h4>
+                            <hr>
+                            <ul class="list-unstyled">
+                                <li><a href="about-us.html" class="footer-href">About us</a></li>
+                                <li><a href="orders.html" class="footer-href">Delivery</a></li>
+                                <li><a href="#" class="footer-href">Legal Notice</a></li>
+                                <li><a href="#" class="footer-href">Terms & Conditions</a></li>
+                                <li><a href="#" class="footer-href">Secure payment</a></li>
+                                <li><a href="contact.html" class="footer-href">Contact us</a></li>
+                            </ul>
+                        </div>
+
+                        <!-- Account -->
+                        <div class="col-sm-12 col-lg-3 mb-4">
+                            <h4 class="gi-footer-heading">Account</h4>
+                            <hr>
+                            <ul class="list-unstyled">
+                                <li><a href="login.html" class="footer-href">Sign In</a></li>
+                                <li><a href="register.html" class="footer-href">Sign Up</a></li>
+                                <li><a href="bills.html" class="footer-href">View Bills</a></li>
+                                <li><a href="notifications.html" class="footer-href">Notifications</a></li>
+                                <li><a href="#" class="footer-href">Return Policy</a></li>
+                                <li><a href="#" class="footer-href">Affiliate Program</a></li>
+                                <li><a href="#" class="footer-href">Payments</a></li>
+                            </ul>
+                        </div>
+
+                        <div class="col-sm-12 col-lg-3 mb-4">
+                            <h4 class="gi-footer-heading">Contact</h4>
+                            <hr>
+                            <ul class="list-unstyled">
+                                <li><i class="fas fa-map-marker-alt"></i> Rangpur, Dhaka, Bangladesh.</li>
+                                <li><i class="fas fa-phone-alt"></i> <a href="tel:+8801759381907"
+                                        class="footer-href">01759381907</a></li>
+                                <li><i class="fas fa-envelope"></i> <a href="mailto:example@email.com"
+                                        class="footer-href">example@email.com</a></li>
+                            </ul>
+                            <div class="gi-footer-social">
+                                <a href="#" class="me-2 footer-href"><i class="fab fa-facebook"></i></a>
+                                <a href="#" class="me-2 footer-href"><i class="fab fa-twitter"></i></a>
+                                <a href="#" class="me-2 footer-href"><i class="fab fa-linkedin"></i></a>
+                                <a href="#" class="footer-href"><i class="fab fa-instagram"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+    </footer>
+
+    <div class="footer-bottom py-3 bg-light">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 text-center text-lg-start">
+                    <p class="mb-0">Copyright © <a href="index.html" class="footer-href">AmarMess</a> All rights
+                        reserved. Powered by DurbaGos.
+                    </p>
+                </div>
+                <div class="col-lg-6 text-center text-lg-end">
+                    <img src="./image/payment.png" alt="payment" class="img-fluid">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+        crossorigin="anonymous"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/flowers.js"></script>
+    <script>
+        document.querySelectorAll('.btn-shop-now').forEach(button => {
+            button.addEventListener('click', function (event) {
+                event.stopPropagation();
+            });
+        });
+    </script>
+
+</body>
+
+</html>

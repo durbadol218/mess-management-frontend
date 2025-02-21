@@ -1,0 +1,30 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f9fa; /* Light background for the main content */
+}
+
+.sidebar {
+    height: 100vh; /* Full height */
+    position: fixed; /* Fixed sidebar */
+    top: 0;
+    left: 0;
+    padding-top: 20px; /* Padding at the top */
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
+.nav-link {
+    padding: 10px 15px; /* Padding for the links */
+    transition: background-color 0.3s; /* Smooth transition for hover */
+}
+
+.nav-link:hover {
+    background-color: #5CAF90; /* Change color on hover */
+}
+
+h5 {
+    font-size: 1.2rem; /* Increase font size for the sidebar title */
+}
+
+.text-light {
+    color: #ffffff !important; /* Ensure text is white */
+}
