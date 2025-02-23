@@ -139,6 +139,57 @@
         .navbar-brand {
             font-weight: 600;
         }
+
+        .container {
+            max-width: 90%;
+            margin: 0 auto;
+        }
+
+        @media (max-width: 1024px) {
+            .main-content {
+                margin-left: 220px;
+                padding: 20px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .main-content {
+                margin-left: 0;
+                padding: 15px;
+            }
+
+            .table-container {
+                overflow-x: auto;
+            }
+
+            .table {
+                font-size: 14px;
+            }
+
+            .table thead {
+                display: none;
+            }
+
+            .table tbody tr {
+                display: block;
+                margin-bottom: 10px;
+                padding: 10px;
+                border: 1px solid #ddd;
+                background: #fff;
+            }
+
+            .table tbody td {
+                display: flex;
+                justify-content: space-between;
+                padding: 8px 0;
+                text-align: left;
+            }
+
+            .table tbody td::before {
+                content: attr(data-label);
+                font-weight: bold;
+            }
+        }
     </style>
 </head>
 
@@ -206,9 +257,9 @@
             </div>
         </aside>
 
-        <div class="container mt-5">
-            <h2>Admin Complaint Management</h2>
-        
+        <div class="container mt-5 main-content">
+            <h2 class="text-center">Admin Complaint Management</h2>
+
             <div class="mb-3">
                 <label for="filter-status">Filter by Status:</label>
                 <select id="filter-status" class="form-select" onchange="fetchAllComplaints(this.value)">
@@ -217,22 +268,26 @@
                     <option value="resolved">Resolved</option>
                 </select>
             </div>
-        
-            <table class="table table-bordered">
-                <thead>
-                    <tr>
-                        <th>ID</th>
-                        <th>User</th>
-                        <th>Category</th>
-                        <th>Description</th>
-                        <th>Status</th>
-                        <th>Action</th>
-                    </tr>
-                </thead>
-                <tbody id="admin-complaint-list">
-                    <tr><td colspan="6" class="text-center">Loading...</td></tr>
-                </tbody>
-            </table>
+
+            <div class="table-container">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>User</th>
+                            <th>Category</th>
+                            <th>Description</th>
+                            <th>Status</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody id="admin-complaint-list">
+                        <tr>
+                            <td colspan="6" class="text-center">Loading...</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
@@ -240,4 +295,5 @@
     <script src="manage_complaint.js"></script>
     <script src="script.js"></script>
 </body>
+
 </html>

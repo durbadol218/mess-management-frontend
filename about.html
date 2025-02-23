@@ -38,7 +38,7 @@
                                 <div class="offcanvas-body">
                                     <ul class="navbar-nav justify-content-center flex-grow-1 pe-3">
                                         <li class="nav-item me-3">
-                                            <a class="nav-link active custom-nav-link" aria-current="page"
+                                            <a class="nav-link custom-nav-link" aria-current="page"
                                                 href="index.html">Home</a>
                                         </li>
                                         <li class="nav-item me-3">
@@ -52,9 +52,6 @@
                                         </li>
                                         <li class="nav-item me-3">
                                             <a class="nav-link custom-nav-link" href="./bills.html">Billing</a>
-                                        </li>
-                                        <li class="nav-item me-3">
-                                            <a class="nav-link custom-nav-link" id="seeOrdersNav" href="./orders.html">See Reports</a>
                                         </li>
                                     </ul>
                                 </div>
@@ -170,29 +167,53 @@
         </div>
     </div>
 
-    <section class="about" id="about">
+    <section class="features-section">
         <div class="container">
             <h2>Experience the Mess Life</h2>
-            <div class="about-grid">
-                <div class="about-card">
-                    <div class="icon">🌟</div>
-                    <h3>Prime Location</h3>
-                    <p>Located in the heart of the city, minutes away from major attractions</p>
+            <div class="row justify-content-center">
+                <div class="col-6 col-md-3 feature-box">
+                    <div class="service-inner">
+                        <div class="img">
+                            <img src="./image/location.png"/>
+                        </div>
+                        <div class="description text-center">
+                            <h3>Prime Location</h3>
+                            <p>Located in the heart of the city, minutes away from major attractions</p>
+                        </div>
+                    </div>
                 </div>
-                <div class="about-card">
-                    <div class="icon">🏠</div>
-                    <h3>Cozy Rooms</h3>
-                    <p>Clean, comfortable rooms designed for both students and bachelors</p>
+                <div class="col-6 col-md-3 feature-box">
+                    <div class="service-inner">
+                        <div class="img">
+                            <img src="./image/home.png" />
+                        </div>
+                        <div class="description text-center">
+                            <h3>Cozy Rooms</h3>
+                            <p>Clean, comfortable rooms designed for both students and bachelors</p>
+                        </div>
+                    </div>
                 </div>
-                <div class="about-card">
-                    <div class="icon">👥</div>
-                    <h3>Community</h3>
-                    <p>Meet fellow borders in our communal spaces and organized events</p>
+                <div class="col-6 col-md-3 feature-box">
+                    <div class="service-inner">
+                        <div class="img">
+                            <img src="./image/community1.png" />
+                        </div>
+                        <div class="description text-center">
+                            <h3>Community</h3>
+                            <p>Meet fellow borders in our communal spaces and organized events</p>
+                        </div>
+                    </div>
                 </div>
-                <div class="about-card">
-                    <div class="icon">🔒</div>
-                    <h3>Safe & Secure</h3>
-                    <p>24/7 security provided by our dedicated security guard</p>
+                <div class="col-6 col-md-3 feature-box">
+                    <div class="service-inner">
+                        <div class="img">
+                            <img src="./image/safe1.png"/>
+                        </div>
+                        <div class="description text-center">
+                            <h3>Safe & Secure</h3>
+                            <p>24/7 security support provided by our dedicated security guard</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -366,7 +387,6 @@
         integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
         crossorigin="anonymous"></script>
     <script src="js/auth.js"></script>
-    <script src="js/flowers.js"></script>
     <script>
         document.querySelectorAll('.btn-shop-now').forEach(button => {
             button.addEventListener('click', function (event) {
