@@ -12,13 +12,20 @@ body {
     background-color: #fff;
 }
 
+header {
+    position: sticky;
+    top: 0;
+    z-index: 1055;
+    background-color:#ffffff;
+    width: 100%;
+}
+
+
 .navbar {
     background-color: #fff;
     height: 80px;
-    padding: 10px 0;
-    position: sticky;
+    /* padding: 10px 0; */
     top: 0;
-    z-index: 1000;
 }
 
 .navbar-brand {
@@ -295,6 +302,11 @@ p.text-success {
     box-sizing: border-box;
     margin-bottom: 30px;
     text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.feature-box:hover {
+    transform: translateY(-5px);
 }
 
 .service-inner {
@@ -472,7 +484,7 @@ p {
 .book-btn {
     width: 100%;
     padding: 0.8rem;
-    background: var(--accent-color);
+    background: #FFCA2C;
     color: white;
     border: none;
     border-radius: 4px;
@@ -677,6 +689,65 @@ p {
     font-size: 1rem;
     color: #6c757d;
 }
+
+
+/* testimonial */
+.testimonials {
+    max-width: 1000px;
+    padding: 0 15px 50px;
+    margin: 0 auto 80px auto;
+}
+
+.single-item {
+    background: #fff;
+    color: #111;
+    padding: 30px;
+    margin: 50px 15px;
+    border-radius: 20px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.single-item:hover {
+    transform: translateY(-5px);
+}
+
+.profile .bio h2 {
+    font-size: 22px;
+    margin-bottom: 5px;
+}
+
+.profile .bio h4 {
+    font-size: 16px;
+    color: #777;
+}
+
+.carsouel-img-area img {
+    height: 200px;
+    width: 200px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 6px solid #FFCA2C;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.content {
+    font-size: 18px;
+    line-height: 1.6;
+    color: #444;
+}
+
+.content p {
+    text-align: justify;
+}
+
+.content p span i {
+    font-size: 30px;
+    color: #FFCA2C;
+    margin-right: 10px;
+    vertical-align: top;
+}
+
 
 /* login-page */
 .box-area {

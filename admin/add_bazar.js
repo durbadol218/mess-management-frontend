@@ -1,4 +1,4 @@
-const API_BASE_URL = "https://mess-management-system-omega.vercel.app/";
+const API_BASE_URL = "https://mess-management-system-omega.vercel.app";
 let usersData = {};
 async function fetchUsernames() {
     try {
