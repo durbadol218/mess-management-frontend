@@ -231,7 +231,7 @@
         </footer>
         
         <script>
-            const cartApiBaseUrl = "https://flowerworld-modified.onrender.com/orders/carts/";
+            const cartApiBaseUrl = "https://mess-management-system-omega.vercel.app/orders/carts/";
             async function fetchCartItems() {
                 const token = localStorage.getItem("token");
                 if (!token) {
@@ -280,7 +280,7 @@
                     <div class="d-flex align-items-center mb-5">
                         <div class="flex-shrink-0">
                             <img src="${item.image_url.startsWith('/') 
-                                ? 'https://flowerworld-modified.onrender.com' + item.image_url 
+                                ? 'https://mess-management-system-omega.vercel.app/' + item.image_url 
                                 : item.image_url}" 
                                 class="img-fluid" 
                                 style="width: 150px;" 

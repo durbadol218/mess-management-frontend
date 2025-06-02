@@ -20,110 +20,103 @@
 </head>
 
 <body>
-    <section class="d-flex align-items-center justify-content-center min-vh-100">
-        <form id="registrationForm" onsubmit="handleRegister(event)" method="post"
-            class="p-4 border rounded-5 shadow w-100 bg-white" style="max-width: 800px;">
-            <h3 class="mb-4 text-uppercase text-dark fs-1 text-center">Register Now</h3>
 
-            <div class="row">
-                <div class="col-md-6">
-                    <div class="mb-3">
-                        <label for="username" class="form-label fs-5">Username</label>
-                        <input type="text" name="username" class="form-control p-3 fs-6 bg-light"
-                            placeholder="Enter your username" required>
-                    </div>
+    <div class="container d-flex justify-content-center align-items-center min-vh-100 py-lg-3">
+        <div class="card card-registration w-100 border rounded-5">
+            <div class="row g-0">
+                <!-- Left-side image -->
+                <div class="col-lg-6 left-img">
+                    <img src="./image/signup.jpg" alt="Register" class="img-fluid h-100" />
                 </div>
-                <div class="col-md-6">
-                    <div class="mb-3">
-                        <label for="email" class="form-label fs-5">Email</label>
-                        <input type="email" name="email" class="form-control p-3 fs-6 bg-light"
-                            placeholder="Enter your email" required>
-                    </div>
+
+                <!-- Right-side form -->
+                <div class="col-lg-6 bg-white p-4 p-lg-5">
+                    <h2 class="text-center fw-bold mb-4">Register Now</h2>
+
+                    <form id="registrationForm" onsubmit="handleRegister(event)" method="post" novalidate>
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label for="username" class="form-label">Username</label>
+                                <input type="text" id="username" name="username" class="form-control"
+                                    placeholder="Enter username" required />
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="email" class="form-label">Email</label>
+                                <input type="email" id="email" name="email" class="form-control"
+                                    placeholder="Enter email" required />
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label for="first_name" class="form-label">First Name</label>
+                                <input type="text" id="first_name" name="first_name" class="form-control"
+                                    placeholder="First name" required />
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="last_name" class="form-label">Last Name</label>
+                                <input type="text" id="last_name" name="last_name" class="form-control"
+                                    placeholder="Last name" required />
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label for="address" class="form-label">Address</label>
+                                <input type="text" id="address" name="address" class="form-control"
+                                    placeholder="Your address" />
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="education_details" class="form-label">Education Details</label>
+                                <input type="text" id="education_details" name="education_details" class="form-control"
+                                    placeholder="Education details" required />
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label for="user_type" class="form-label">User Type</label>
+                                <select id="user_type" name="user_type" class="form-select" required>
+                                    <option value="Admin">Admin</option>
+                                    <option value="User">User</option>
+                                </select>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="contact_number" class="form-label">Contact Number</label>
+                                <input type="tel" id="contact_number" name="contact_number" class="form-control"
+                                    placeholder="Contact number" required />
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label for="password" class="form-label">Password</label>
+                                <input type="password" id="password" name="password" class="form-control"
+                                    placeholder="Password" required />
+                            </div>
+                            <div class="col-md-6 mb-4">
+                                <label for="confirm_password" class="form-label">Confirm Password</label>
+                                <input type="password" id="confirm_password" name="confirm_password"
+                                    class="form-control" placeholder="Confirm password" required />
+                            </div>
+                        </div>
+
+                        <button type="submit" class="btn w-100 py-2 mb-3"
+                            style="background-color: #FFCA2C; color: white; font-size: 1.25rem;">
+                            Register
+                        </button>
+                        <p class="text-center">
+                            Already have an account?
+                            <a href="login.html" style="color: #FFCA2C;">Login now</a>
+                        </p>
+                    </form>
+
+                    <p id="registration-loading-message" class="text-center small"></p>
+                    <p id="registration-error-message" class="text-danger text-center small"></p>
                 </div>
             </div>
-
-            <div class="row">
-                <div class="col-md-6">
-                    <div class="mb-3">
-                        <label for="first_name" class="form-label fs-5">First Name</label>
-                        <input type="text" name="first_name" class="form-control p-3 fs-6 bg-light"
-                            placeholder="Enter your first name" required>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="mb-3">
-                        <label for="last_name" class="form-label fs-5">Last Name</label>
-                        <input type="text" name="last_name" class="form-control p-3 fs-6 bg-light"
-                            placeholder="Enter your last name" required>
-                    </div>
-                </div>
-            </div>
-
-
-            <div class="row">
-                <div class="col-md-6">
-                    <div class="mb-3">
-                        <label for="address" class="form-label fs-5">Address</label>
-                        <input type="text" name="address" class="form-control p-3 fs-6 bg-light"
-                            placeholder="Enter your address">
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="mb-3">
-                        <label for="education_details" class="form-label fs-5">Education Details</label>
-                        <input type="text" name="education_details" class="form-control p-3 fs-6 bg-light"
-                            placeholder="Enter your Education Details" required>
-                    </div>
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="col-md-6">
-                    <div class="mb-3">
-                        <label for="user_type" class="form-label fs-5">User Type</label>
-                        <select required class="form-select p-3 fs-6 bg-light" id="user_type" name="user_type">
-                            <option value="Admin">Admin</option>
-                            <option value="User">User</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="mb-3">
-                        <label for="contact_number" class="form-label fs-5">Contact Number</label>
-                        <input type="number" name="contact_number" class="form-control p-3 fs-6 bg-light"
-                            placeholder="Enter your contact number" required>
-                    </div>
-                </div>
-            </div>
-
-
-            <div class="row">
-                <div class="col-md-6">
-                    <div class="mb-3">
-                        <label for="password" class="form-label fs-5">Password</label>
-                        <input type="password" name="password" class="form-control p-3 fs-6 bg-light"
-                            placeholder="Enter your password" required>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="mb-3">
-                        <label for="confirm_password" class="form-label fs-5">Confirm Password</label>
-                        <input type="password" name="confirm_password" class="form-control p-3 fs-6 bg-light"
-                            placeholder="Confirm your password" required>
-                    </div>
-                </div>
-            </div>
-            <button type="submit" class="btn btn-lg btn-primary w-100 fs-5 btnRegister">Register</button>
-            <p class="mt-3 form-p text-center fs-5">
-                Already have an account?
-                <a href="login.html">Login now</a>
-            </p>
-        </form>
-        <p id="registration-loading-message"></p>
-        <p id="registration-error-message" class="text-danger"></p>
-    </section>
-
-
+        </div>
+    </div>
 
     <div class="container mt-3">
         <div id="regi-alert-success" class="alert alert-success d-none fs-3" role="alert">
@@ -138,4 +131,5 @@
     <script src="js/auth.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
+
 </html>

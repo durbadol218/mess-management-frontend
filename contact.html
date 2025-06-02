@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Contact</title>
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
         href="https://fonts.googleapis.com/css2?family=Edu+AU+VIC+WA+NT+Dots:wght@400..700&family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
@@ -16,58 +17,68 @@
         integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
         integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" /><link href="css/style.css" rel="stylesheet">
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="css/style.css" rel="stylesheet">
 </head>
+
 <body>
     <header>
-        <nav class="navbar navbar-expand-lg custom-navbar">
-            <div class="container-fluid">
-                <a class="navbar-brand me-auto" href="index.html">Amar Mess</a>
+        <nav class="navbar navbar-expand-lg py-3 shadow-sm sticky-top bg-white">
+            <div class="container px-4">
+                <a class="navbar-brand" href="index.html">
+                    <img src="./image/logo_again.png" alt="Logo" style="max-width: 200px; width: 100%;">
+                </a>
+
+                <!-- Toggler -->
+                <button class="navbar-toggler border-0" type="button" data-bs-toggle="offcanvas"
+                    data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
+                    <i class="fa-solid fa-bars bar-icon"></i>
+                </button>
+
+                <!-- Offcanvas Menu -->
                 <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar"
                     aria-labelledby="offcanvasNavbarLabel">
                     <div class="offcanvas-header">
-                        <h5 class="offcanvas-title" id="offcanvasNavbarLabel">AmarMess</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                        <h5 class="offcanvas-title" id="offcanvasNavbarLabel">
+                            <img src="./image/logo_again.png" alt="Logo" style="max-width: 200px;">
+                        </h5>
+                        <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"
+                            aria-label="Close"></button>
                     </div>
+
                     <div class="offcanvas-body">
-                        <ul class="navbar-nav justify-content-center flex-grow-1 pe-3">
-                            <li class="nav-item me-3">
-                                <a class="nav-link custom-nav-link" aria-current="page"
-                                    href="index.html">Home</a>
+                        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                            <li class="nav-item px-2">
+                                <a class="nav-link" href="./index.html">Home</a>
                             </li>
-                            <li class="nav-item me-3">
-                                <a class="nav-link custom-nav-link" href="about.html">About</a>
+                            <li class="nav-item px-2">
+                                <a class="nav-link" href="./about.html">About</a>
                             </li>
-                            <li class="nav-item me-3">
-                                <a class="nav-link custom-nav-link" href="./contact.html">Contact Us</a>
+                            <li class="nav-item px-2">
+                                <a class="nav-link" href="./contact.html">Contact Us</a>
                             </li>
-                            <li class="nav-item me-3">
-                                <a class="nav-link custom-nav-link" href="./meals.html">Meals Menu</a>
+                            <li class="nav-item px-2">
+                                <a class="nav-link" href="./meals.html">Meals Menu</a>
                             </li>
-                            <li class="nav-item me-3">
-                                <a class="nav-link custom-nav-link" href="./bills.html">Billing</a>
+                            <li class="nav-item px-2">
+                                <a class="nav-link" href="./bills.html">Billing</a>
                             </li>
                         </ul>
+
+                        <div>
+                            <a href="./login.html" class="btn btn-outline-light login-button">Login</a>
+                            <a href="./register.html" class="btn btn-outline-light register-button">Register</a>
+                            <a href="./profile.html"
+                                class="btn btn-outline-light profile-link d-none profile-button">Profile</a>
+                            <a onclick="handleLogout()"
+                                class="btn btn-outline-light logout-button d-none logout-button">Logout</a>
+                        </div>
                     </div>
                 </div>
-
-                <div class="me-4">
-                    <i class="fas fa-search" data-bs-toggle="modal" data-bs-target="#searchModal"></i>
-                </div>
-
-                <a href="./login.html" class="btn btn-outline-light login-button">Login</a>
-                <a href="./register.html" class="btn btn-outline-light register-button">Register</a>
-                <a href="./profile.html" class="btn btn-outline-light profile-link d-none profile-button">Profile</a>
-                <a onclick="handleLogout()" class="btn btn-outline-light logout-button d-none logout-button">Logout</a>
-
-                <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas"
-                    data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
             </div>
         </nav>
     </header>
-    
+
 
     <!-- Search Modal -->
     <div class="modal fade" id="searchModal" tabindex="-1" aria-labelledby="searchModalLabel" aria-hidden="true">
@@ -95,63 +106,80 @@
     <section class="contact-section">
         <div class="contact-content">
             <h2>Contact Us</h2>
-            <p class="text-white">Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis, officia nisi doloremque fuga error numquam?</p>
+            <p class="text-white">Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis, officia nisi
+                doloremque fuga error numquam?</p>
         </div>
         <div class="contact-container row">
             <div class="col-lg-6">
                 <div class="contact-info">
                     <div class="contact-item">
-                        <i class="fa-solid fa-location-dot"></i>
-                        <div>
+                        <div class="contact-icon">
+                            <i class="fa-solid fa-location-dot"></i>
+                        </div>
+                        <div class="contact-details">
                             <h3>Address</h3>
                             <p>Rangpur, Bangladesh, 5440.</p>
+                            <a href="https://maps.app.goo.gl/md9sv3mK6ZCqVfTs7" class="map-link">View on map <i
+                                    class="fas fa-arrow-right"></i></a>
                         </div>
                     </div>
                     <div class="contact-item">
-                        <i class="fa-solid fa-phone"></i>
-                        <div>
+                        <div class="contact-icon">
+                            <i class="fa-solid fa-phone"></i>
+                        </div>
+                        <div class="contact-details">
                             <h3>Phone</h3>
-                            <p>01719381907</p>
+                            <p><a href="tel:01719381907">01719381907</a></p>
+                            <p class="contact-hours">Available 9AM-6PM, Mon-Fri</p>
                         </div>
                     </div>
                     <div class="contact-item">
-                        <i class="fa-solid fa-envelope"></i>
-                        <div>
+                        <div class="contact-icon">
+                            <i class="fa-solid fa-envelope"></i>
+                        </div>
+                        <div class="contact-details">
                             <h3>Email</h3>
-                            <p>support@gmail.com</p>
+                            <p><a href="mailto:support@gmail.com">support@gmail.com</a></p>
+                            <p class="response-time">Typically responds within 24 hours</p>
                         </div>
                     </div>
                 </div>
             </div>
-            
+
             <div class="contact-form col-lg-6">
-                <form>
+                <form class="animated-form">
                     <h2 class="form-title">Send Message</h2>
-                    <div class="input-box mb-3">
+                    <div class="input-box mb-4">
                         <span class="form-label">Full Name</span>
-                        <input type="text" class="form-control" placeholder="Enter your full name" required/>
+                        <input type="text" class="form-control" placeholder="Enter your full name" required />
+                        <div class="input-underline"></div>
                     </div>
-            
-                    <div class="input-box mb-3">
+
+                    <div class="input-box mb-4">
                         <span class="form-label">Email</span>
-                        <input type="email" class="form-control" placeholder="Enter your email" required/>
+                        <input type="email" class="form-control" placeholder="Enter your email" required />
+                        <div class="input-underline"></div>
                     </div>
-            
-                    <div class="input-box mb-3">
+
+                    <div class="input-box mb-4">
                         <span class="form-label">Type Your Message Here...</span>
                         <textarea class="form-control" rows="5" placeholder="Your message" required></textarea>
+                        <div class="input-underline"></div>
                     </div>
-                    
+
                     <div class="input-box">
-                        <button type="submit" class="btn btn-primary btn-block">Send Message</button>
+                        <button type="submit" class="btn btn-block submit-btn">
+                            <span>Send Message</span>
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
                     </div>
                 </form>
             </div>
-            
         </div>
     </section>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-<script src="js/auth.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/auth.js"></script>
 </body>
+
 </html>

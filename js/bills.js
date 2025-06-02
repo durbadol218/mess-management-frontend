@@ -210,7 +210,7 @@ function fetchBillSummary(month) {
             let billDetailsHtml = `
                 ${fixedBillHtml}
                 ${mealBreakdownHtml}
-                <h5 class="text-primary fw-bold">Total Bill: ${totalAmount} TK</h5>
+                <h5 class="text-dark fw-bold">Total Bill: ${totalAmount} TK</h5>
             `;
             document.getElementById("flowers-container").innerHTML = billDetailsHtml;
             document.querySelector(".total-amount").innerText = `${totalAmount} TK`;

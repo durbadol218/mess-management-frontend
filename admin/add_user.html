@@ -24,6 +24,8 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
         *,
         ::after,
         ::before {
@@ -31,7 +33,7 @@
         }
 
         body {
-            font-family: 'Kanit', sans-serif;
+            font-family: 'Poppins', sans-serif;
             font-size: 0.875rem;
             opacity: 1;
             overflow-y: scroll;
@@ -82,6 +84,14 @@
 
         /* Sidebar Elements Style */
 
+        .sidebar-item {
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        .sidebar-item:hover {
+            background-color: #0d4a69;
+        }
+
         .sidebar-logo {
             padding: 1.15rem;
         }
@@ -111,6 +121,11 @@
             position: relative;
             display: block;
             font-size: 0.875rem;
+        }
+
+        a.sidebar-link:hover {
+            background-color: #0781a2;
+            color: #e9ecef;
         }
 
         .sidebar-link[data-bs-toggle="collapse"]::after {
@@ -496,7 +511,7 @@
             toggleRootClass();
         }
     </script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script> -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js"></script>
     <script src="admin_admin.js"></script>
     <script src="add_user.js"></script>

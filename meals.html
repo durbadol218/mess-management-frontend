@@ -22,82 +22,65 @@
 
 <body>
     <header>
-        <nav class="navbar navbar-expand-lg custom-navbar">
-            <div class="container-fluid">
-                <a class="navbar-brand me-auto" href="index.html">Amar Mess</a>
+        <nav class="navbar navbar-expand-lg py-3 shadow-sm sticky-top bg-white">
+            <div class="container px-4">
+                <a class="navbar-brand" href="index.html">
+                    <img src="./image/logo_again.png" alt="Logo" style="max-width: 200px; width: 100%;">
+                </a>
+
+                <!-- Toggler -->
+                <button class="navbar-toggler border-0" type="button" data-bs-toggle="offcanvas"
+                    data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
+                    <i class="fa-solid fa-bars bar-icon"></i>
+                </button>
+
+                <!-- Offcanvas Menu -->
                 <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar"
                     aria-labelledby="offcanvasNavbarLabel">
                     <div class="offcanvas-header">
-                        <h5 class="offcanvas-title" id="offcanvasNavbarLabel">AmarMess</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                        <h5 class="offcanvas-title" id="offcanvasNavbarLabel">
+                            <img src="./image/logo_again.png" alt="Logo" style="max-width: 200px;">
+                        </h5>
+                        <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"
+                            aria-label="Close"></button>
                     </div>
+
                     <div class="offcanvas-body">
-                        <ul class="navbar-nav justify-content-center flex-grow-1 pe-3">
-                            <li class="nav-item me-3">
-                                <a class="nav-link custom-nav-link" aria-current="page"
-                                    href="index.html">Home</a>
+                        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                            <li class="nav-item px-2">
+                                <a class="nav-link" href="./index.html">Home</a>
                             </li>
-                            <li class="nav-item me-3">
-                                <a class="nav-link custom-nav-link" href="about.html">About</a>
+                            <li class="nav-item px-2">
+                                <a class="nav-link" href="./about.html">About</a>
                             </li>
-                            <li class="nav-item me-3">
-                                <a class="nav-link custom-nav-link" href="./contact.html">Contact Us</a>
+                            <li class="nav-item px-2">
+                                <a class="nav-link" href="./contact.html">Contact Us</a>
                             </li>
-                            <li class="nav-item me-3">
-                                <a class="nav-link custom-nav-link" href="./meals.html">Meals Menu</a>
+                            <li class="nav-item px-2">
+                                <a class="nav-link" href="./meals.html">Meals Menu</a>
                             </li>
-                            <li class="nav-item me-3">
-                                <a class="nav-link custom-nav-link" href="./bills.html">Billing</a>
+                            <li class="nav-item px-2">
+                                <a class="nav-link" href="./bills.html">Billing</a>
                             </li>
                         </ul>
+
+                        <div>
+                            <a href="./login.html" class="btn btn-outline-light login-button">Login</a>
+                            <a href="./register.html" class="btn btn-outline-light register-button">Register</a>
+                            <a href="./profile.html"
+                                class="btn btn-outline-light profile-link d-none profile-button">Profile</a>
+                            <a onclick="handleLogout()"
+                                class="btn btn-outline-light logout-button d-none logout-button">Logout</a>
+                        </div>
                     </div>
                 </div>
-
-                <div class="me-4">
-                    <i class="fas fa-search" data-bs-toggle="modal" data-bs-target="#searchModal"></i>
-                </div>
-
-                <a href="./login.html" class="btn btn-outline-light login-button">Login</a>
-                <a href="./register.html" class="btn btn-outline-light register-button">Register</a>
-                <a href="./profile.html" class="btn btn-outline-light profile-link d-none profile-button">Profile</a>
-                <a onclick="handleLogout()" class="btn btn-outline-light logout-button d-none logout-button">Logout</a>
-
-                <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas"
-                    data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
             </div>
         </nav>
     </header>
-    
 
-    <!-- Search Modal -->
-    <div class="modal fade" id="searchModal" tabindex="-1" aria-labelledby="searchModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="searchModalLabel">Search Services</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <div class="mb-3">
-                        <label for="modal-flower-search" class="form-label">Search by Service Name</label>
-                        <input type="text" id="modal-flower-search" class="form-control"
-                            placeholder="Enter flower name">
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary" id="apply-filters">Apply Filters</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-
-    <div id="meal-container" class="container">
+    <div id="meal-container" class="container mt-lg-5 mt-sm-5">
         <h1>Meal Management</h1>
-    
+
         <!-- Add a Meal Form -->
         <section class="add-meal">
             <h3>Add a Meal</h3>
@@ -106,7 +89,7 @@
                     <label for="date">Date:</label>
                     <input type="date" id="date" required>
                 </div>
-    
+
                 <div class="form-group">
                     <label for="meal_choice">Meal Choice:</label>
                     <select id="meal_choice" required>
@@ -116,11 +99,12 @@
                         <option value="full">Full Meal</option>
                     </select>
                 </div>
-    
-                <button class="meal_submit" type="submit" class="btn-submit" style="background-color: #f0c346;">Add Meal</button>
+
+                <button class="meal_submit" type="submit" class="btn-submit" style="background-color: #f0c346;">Add
+                    Meal</button>
             </form>
         </section>
-    
+
         <!-- Meal Table -->
         <table class="meal-table">
             <thead>
@@ -137,8 +121,8 @@
             </tbody>
         </table>
     </div>
-    
-    
+
+
     <!-- Footer -->
     <footer class="gi-footer mt-5">
         <div class="footer-container">
@@ -148,13 +132,13 @@
                         <!-- Company Info -->
                         <div class="col-sm-12 col-lg-3 gi-footer-cat mb-4">
                             <div class="gi-footer-widget gi-footer-company">
-                                <h1 style="color: #f0c346;">AmarMess</h1>
+                                <h1 class="footer-logo">AmarMess</h1>
                                 <div class="gi-app-store">
-                                    <a href="#" class="footer-href">
-                                        <img src="./image/playStore.png" class="android img-fluid" alt="android">
+                                    <a href="#" class="footer-href" aria-label="Download on Google Play">
+                                        <img src="./image/playStore.png" class="android img-fluid" alt="Google Play">
                                     </a>
-                                    <a href="#" class="footer-href">
-                                        <img src="./image/appStore.png" class="apple img-fluid" alt="apple">
+                                    <a href="#" class="footer-href" aria-label="Download on App Store">
+                                        <img src="./image/appStore.png" class="apple img-fluid" alt="App Store">
                                     </a>
                                 </div>
                             </div>
@@ -163,8 +147,8 @@
                         <!-- Company -->
                         <div class="col-sm-12 col-lg-3 mb-4">
                             <h4 class="gi-footer-heading">Company</h4>
-                            <hr>
-                            <ul class="list-unstyled">
+                            <hr class="footer-divider">
+                            <ul class="list-unstyled footer-links">
                                 <li><a href="about-us.html" class="footer-href">About us</a></li>
                                 <li><a href="orders.html" class="footer-href">Delivery</a></li>
                                 <li><a href="#" class="footer-href">Legal Notice</a></li>
@@ -177,8 +161,8 @@
                         <!-- Account -->
                         <div class="col-sm-12 col-lg-3 mb-4">
                             <h4 class="gi-footer-heading">Account</h4>
-                            <hr>
-                            <ul class="list-unstyled">
+                            <hr class="footer-divider">
+                            <ul class="list-unstyled footer-links">
                                 <li><a href="login.html" class="footer-href">Sign In</a></li>
                                 <li><a href="register.html" class="footer-href">Sign Up</a></li>
                                 <li><a href="bills.html" class="footer-href">View Bills</a></li>
@@ -191,50 +175,52 @@
 
                         <div class="col-sm-12 col-lg-3 mb-4">
                             <h4 class="gi-footer-heading">Contact</h4>
-                            <hr>
-                            <ul class="list-unstyled">
-                                <li><i class="fas fa-map-marker-alt"></i> Rangpur, Dhaka, Bangladesh.</li>
-                                <li><i class="fas fa-phone-alt"></i> <a href="tel:+8801759381907"
+                            <hr class="footer-divider">
+                            <ul class="list-unstyled footer-contact">
+                                <li><i class="fas fa-map-marker-alt contact-icon"></i> Rangpur, Dhaka, Bangladesh.</li>
+                                <li><i class="fas fa-phone-alt contact-icon"></i> <a href="tel:+8801759381907"
                                         class="footer-href">01759381907</a></li>
-                                <li><i class="fas fa-envelope"></i> <a href="mailto:example@email.com"
+                                <li><i class="fas fa-envelope contact-icon"></i> <a href="mailto:example@email.com"
                                         class="footer-href">example@email.com</a></li>
                             </ul>
                             <div class="gi-footer-social">
-                                <a href="#" class="me-2 footer-href"><i class="fab fa-facebook"></i></a>
-                                <a href="#" class="me-2 footer-href"><i class="fab fa-twitter"></i></a>
-                                <a href="#" class="me-2 footer-href"><i class="fab fa-linkedin"></i></a>
-                                <a href="#" class="footer-href"><i class="fab fa-instagram"></i></a>
+                                <a href="#" class="me-2 footer-href" aria-label="Facebook"><i
+                                        class="fab fa-facebook"></i></a>
+                                <a href="#" class="me-2 footer-href" aria-label="Twitter"><i
+                                        class="fab fa-twitter"></i></a>
+                                <a href="#" class="me-2 footer-href" aria-label="LinkedIn"><i
+                                        class="fab fa-linkedin"></i></a>
+                                <a href="#" class="footer-href" aria-label="Instagram"><i
+                                        class="fab fa-instagram"></i></a>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        </div>
-    </footer>
 
-    <div class="footer-bottom py-3 bg-light">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-lg-6 text-center text-lg-start">
-                    <p class="mb-0">Copyright © <a href="index.html" class="footer-href">AmarMess</a> All rights
-                        reserved. Powered by DurbaGos.
-                    </p>
-                </div>
-                <div class="col-lg-6 text-center text-lg-end">
-                    <img src="./image/payment.png" alt="payment" class="img-fluid">
+        <div class="footer-bottom py-3 bg-light">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-6 text-center text-lg-start">
+                        <p class="mb-0 footer-copy">Copyright © <a href="index.html" class="footer-href">AmarMess</a>
+                            All rights reserved. Powered by DurbaGos.</p>
+                    </div>
+                    <div class="col-lg-6 text-center text-lg-end">
+                        <img src="./image/payment.png" alt="Accepted payment methods" class="img-fluid payment-methods">
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-    
-    
+    </footer>
+
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
         crossorigin="anonymous"></script>
     <script src="js/auth.js"></script>
     <script src="js/meals.js"></script>
-    
+
     <script>
         document.querySelectorAll('.btn-shop-now').forEach(button => {
             button.addEventListener('click', function (event) {
