@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Successfull | AmarMess</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Edu+AU+VIC+WA+NT+Dots:wght@400..700&family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+        integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="css/style.css" rel="stylesheet">
+</head>
+
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg py-3 shadow sticky-top bg-white">
+            <div class="container px-4">
+                <a class="navbar-brand" href="index.html">
+                    <img src="./image/logo_again.png" alt="Logo" style="max-width: 200px; width: 100%;">
+                </a>
+
+                <!-- Toggler -->
+                <button class="navbar-toggler border-0" type="button" data-bs-toggle="offcanvas"
+                    data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
+                    <i class="fa-solid fa-bars bar-icon"></i>
+                </button>
+
+                <!-- Offcanvas Menu -->
+                <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar"
+                    aria-labelledby="offcanvasNavbarLabel">
+                    <div class="offcanvas-header">
+                        <h5 class="offcanvas-title" id="offcanvasNavbarLabel">
+                            <img src="./image/logo_again.png" alt="Logo" style="max-width: 200px;">
+                        </h5>
+                        <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"
+                            aria-label="Close"></button>
+                    </div>
+
+                    <div class="offcanvas-body">
+                        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                            <li class="nav-item px-2">
+                                <a class="nav-link" href="./index.html">Home</a>
+                            </li>
+                            <li class="nav-item px-2">
+                                <a class="nav-link" href="./about.html">About</a>
+                            </li>
+                            <li class="nav-item px-2">
+                                <a class="nav-link" href="./contact.html">Contact Us</a>
+                            </li>
+                            <li class="nav-item px-2">
+                                <a class="nav-link" href="./meals.html">Meals Menu</a>
+                            </li>
+                            <li class="nav-item px-2">
+                                <a class="nav-link" href="./bills.html">Billing</a>
+                            </li>
+                        </ul>
+
+                        <div>
+                            <a href="./login.html" class="btn btn-outline-light login-button">Login</a>
+                            <a href="./register.html" class="btn btn-outline-light register-button">Register</a>
+                            <a href="./profile.html"
+                                class="btn btn-outline-light profile-link d-none profile-button">Profile</a>
+                            <a onclick="handleLogout()"
+                                class="btn btn-outline-light logout-button d-none logout-button">Logout</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-8 col-lg-6 text-center">
+                <div class="card p-4 shadow-sm">
+                    <div class="mb-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" fill="#28a745"
+                            class="bi bi-check-circle-fill" viewBox="0 0 16 16">
+                            <path
+                                d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z" />
+                        </svg>
+                    </div>
+                    <h2 class="mb-3">Payment Successful!</h2>
+                    <p class="lead mb-4">Thank you for your purchase! Your order has been successfully processed.</p>
+                    <div class="d-grid gap-2 col-md-6 mx-auto">
+                        <a href="index.html" class="btn btn-lg" style="background-color:#F0C346;">Return to Home</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="gi-footer mt-5">
+        <div class="footer-container">
+            <div class="footer-top py-5">
+                <div class="container">
+                    <div class="row">
+                        <!-- Company Info -->
+                        <div class="col-sm-12 col-lg-3 gi-footer-cat mb-4">
+                            <div class="gi-footer-widget gi-footer-company">
+                                <h1 class="footer-logo">AmarMess</h1>
+                                <div class="gi-app-store">
+                                    <a href="#" class="footer-href" aria-label="Download on Google Play">
+                                        <img src="./image/playStore.png" class="android img-fluid" alt="Google Play">
+                                    </a>
+                                    <a href="#" class="footer-href" aria-label="Download on App Store">
+                                        <img src="./image/appStore.png" class="apple img-fluid" alt="App Store">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Company -->
+                        <div class="col-sm-12 col-lg-3 mb-4">
+                            <h4 class="gi-footer-heading">Company</h4>
+                            <hr class="footer-divider">
+                            <ul class="list-unstyled footer-links">
+                                <li><a href="about-us.html" class="footer-href">About us</a></li>
+                                <li><a href="orders.html" class="footer-href">Delivery</a></li>
+                                <li><a href="#" class="footer-href">Legal Notice</a></li>
+                                <li><a href="#" class="footer-href">Terms & Conditions</a></li>
+                                <li><a href="#" class="footer-href">Secure payment</a></li>
+                                <li><a href="contact.html" class="footer-href">Contact us</a></li>
+                            </ul>
+                        </div>
+
+                        <!-- Account -->
+                        <div class="col-sm-12 col-lg-3 mb-4">
+                            <h4 class="gi-footer-heading">Account</h4>
+                            <hr class="footer-divider">
+                            <ul class="list-unstyled footer-links">
+                                <li><a href="login.html" class="footer-href">Sign In</a></li>
+                                <li><a href="register.html" class="footer-href">Sign Up</a></li>
+                                <li><a href="bills.html" class="footer-href">View Bills</a></li>
+                                <li><a href="notifications.html" class="footer-href">Notifications</a></li>
+                                <li><a href="#" class="footer-href">Return Policy</a></li>
+                                <li><a href="#" class="footer-href">Affiliate Program</a></li>
+                                <li><a href="#" class="footer-href">Payments</a></li>
+                            </ul>
+                        </div>
+
+                        <div class="col-sm-12 col-lg-3 mb-4">
+                            <h4 class="gi-footer-heading">Contact</h4>
+                            <hr class="footer-divider">
+                            <ul class="list-unstyled footer-contact">
+                                <li><i class="fas fa-map-marker-alt contact-icon"></i> Rangpur, Dhaka, Bangladesh.</li>
+                                <li><i class="fas fa-phone-alt contact-icon"></i> <a href="tel:+8801759381907"
+                                        class="footer-href">01759381907</a></li>
+                                <li><i class="fas fa-envelope contact-icon"></i> <a href="mailto:example@email.com"
+                                        class="footer-href">example@email.com</a></li>
+                            </ul>
+                            <div class="gi-footer-social">
+                                <a href="#" class="me-2 footer-href" aria-label="Facebook"><i
+                                        class="fab fa-facebook"></i></a>
+                                <a href="#" class="me-2 footer-href" aria-label="Twitter"><i
+                                        class="fab fa-twitter"></i></a>
+                                <a href="#" class="me-2 footer-href" aria-label="LinkedIn"><i
+                                        class="fab fa-linkedin"></i></a>
+                                <a href="#" class="footer-href" aria-label="Instagram"><i
+                                        class="fab fa-instagram"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom py-3 bg-light">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-6 text-center text-lg-start">
+                        <p class="mb-0 footer-copy">Copyright © <a href="index.html" class="footer-href">AmarMess</a>
+                            All rights reserved. Powered by DurbaGos.</p>
+                    </div>
+                    <div class="col-lg-6 text-center text-lg-end">
+                        <img src="./image/payment.png" alt="Accepted payment methods" class="img-fluid payment-methods">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        window.addEventListener('load', () => {
+            confetti({
+                particleCount: 150,
+                spread: 80,
+                origin: { y: 0.6 }
+            });
+
+            const duration = 3 * 1000;
+            const animationEnd = Date.now() + duration;
+            const defaults = { startVelocity: 30, spread: 360, ticks: 60, zIndex: 1000 };
+
+            function randomInRange(min, max) {
+                return Math.random() * (max - min) + min;
+            }
+
+            const interval = setInterval(function () {
+                const timeLeft = animationEnd - Date.now();
+                if (timeLeft <= 0) {
+                    return clearInterval(interval);
+                }
+                const particleCount = 50 * (timeLeft / duration);
+                confetti(Object.assign({}, defaults, {
+                    particleCount,
+                    origin: { x: randomInRange(0.1, 0.3), y: Math.random() - 0.2 }
+                }));
+                confetti(Object.assign({}, defaults, {
+                    particleCount,
+                    origin: { x: randomInRange(0.7, 0.9), y: Math.random() - 0.2 }
+                }));
+            }, 250);
+        });
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+        crossorigin="anonymous"></script>
+    <script src="js/auth.js"></script>
+</body>
+
+</html>

@@ -31,6 +31,7 @@ const handleRegister = (event) => {
             education_details: formData.get("education_details"),
             address: formData.get("address"),
             user_type: formData.get("user_type"),
+            seat_type: formData.get("seat_type"),
             contact_number: formData.get("contact_number"),
             password: formData.get("password"),
             confirm_password: formData.get("confirm_password"),
