@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Payment Failed | AmarMess</title>
+    <title>Home</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -81,36 +81,57 @@
         </nav>
     </header>
 
-    <div class="container mt-5">
-        <div class="row justify-content-center">
-            <div class="col-md-8 col-lg-6 text-center">
-                <div class="card p-4 shadow-sm border-danger">
-                    <div class="mb-4">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" fill="#dc3545"
-                            class="bi bi-x-circle-fill" viewBox="0 0 16 16">
-                            <path
-                                d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM5.354 4.646a.5.5 0 1 0-.708.708L7.293 8l-2.647 2.646a.5.5 0 0 0 .708.708L8 8.707l2.646 2.647a.5.5 0 0 0 .708-.708L8.707 8l2.647-2.646a.5.5 0 0 0-.708-.708L8 7.293 5.354 4.646z" />
-                        </svg>
-                    </div>
-                    <h2 class="mb-3 text-danger">Payment Failed</h2>
-                    <p class="lead mb-4">Unfortunately, your payment could not be processed. Please try again later or
-                        contact support if the issue persists.</p>
+    <section class="h-100 h-custom mt-3">
+        <div class="container h-100">
+            <div class="row d-flex justify-content-center align-items-start h-100">
+                <div class="col-md-8">
+                    <div class="card shopping-cart" style="border-radius: 15px;">
+                        <div class="card-body" style="max-height: 700px; overflow-y: auto;">
+                            <h3 class="mb-4 pt-2 text-center fw-bold text-uppercase">Your Bills</h3>
 
-                    <div class="d-grid gap-3 col-md-8 mx-auto">
-                        <a href="#" class="btn btn-danger">Retry Payment</a>
-                        <a href="index.html" class="btn btn-outline-secondary">Return to Home</a>
-                    </div>
+                            <!-- Filters -->
+                            <div class="d-flex justify-content-between align-items-center mb-4">
+                                <div>
+                                    <label for="year-select" class="fw-bold me-2">Year</label>
+                                    <input type="number" id="year-select" value="2025" min="2020" max="2099"
+                                        class="form-control d-inline-block" style="width: 100px;">
+                                </div>
+                                <div>
+                                    <label for="month-select" class="fw-bold me-2">Month</label>
+                                    <select id="month-select" class="form-select d-inline-block" style="width: 150px;">
+                                        <option value="">All Months</option>
+                                        <option value="1">January</option>
+                                        <option value="2">February</option>
+                                        <option value="3">March</option>
+                                        <option value="4">April</option>
+                                        <option value="5">May</option>
+                                        <option value="6">June</option>
+                                        <option value="7">July</option>
+                                        <option value="8">August</option>
+                                        <option value="9">September</option>
+                                        <option value="10">October</option>
+                                        <option value="11">November</option>
+                                        <option value="12">December</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <button onclick="applyFilter()" class="btn mt-2" style="background-color: #F0C346;">Filter</button>
+                                </div>
+                            </div>
 
-                    <div class="mt-4 text-muted">
-                        <small>Need help? <a href="contact.html" class="text-decoration-none">Contact our support
-                                team</a></small>
+                            <!-- Bill Results -->
+                            <div id="bills-container">
+                                <!-- Injected bill cards -->
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
+    </section>
 
-    <!-- Footer -->
+
+
     <footer class="gi-footer mt-5">
         <div class="footer-container">
             <div class="footer-top py-5">
@@ -201,11 +222,18 @@
         </div>
     </footer>
 
-    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+    <script src="js/bill_history.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
         crossorigin="anonymous"></script>
     <script src="js/auth.js"></script>
+    <script>
+        document.querySelectorAll('.btn-shop-now').forEach(button => {
+            button.addEventListener('click', function (event) {
+                event.stopPropagation();
+            });
+        });
+    </script>
 </body>
 
 </html>

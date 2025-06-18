@@ -45,8 +45,9 @@ header {
 .register-button,
 .profile-button,
 .logout-button {
-    background-color: #f0c346;
-    color: #fff;
+    background-color: #FFC107;
+    color: black;
+    font-weight: bold;
     font-size: 15px;
     padding: 8px 20px;
     border-radius: 50px;
@@ -380,7 +381,7 @@ p.text-success {
     gap: 0.5rem;
     padding: 0.8rem 2rem;
     background: #FFC107;
-    color: #ffff;
+    color: black;
     border-radius: 50px;
     font-weight: 600;
     text-decoration: none;
@@ -1785,8 +1786,8 @@ button[type="submit"]:hover {
 }
 
 .submit-btn {
-    background-color: #f0c346 !important;
-    color: #333;
+    background-color: #FFC107 !important;
+    color: black !important;
     border: none;
     padding: 14px;
     font-size: 16px;
@@ -1802,9 +1803,10 @@ button[type="submit"]:hover {
 }
 
 .submit-btn:hover {
-    background-color: #e0b53d !important;
-    transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(240, 195, 70, 0.3);
+    background-color: #f0c346;
+    color: #fff;
+    /* transform: translateY(-2px); */
+    /* box-shadow: 0 5px 15px rgba(240, 195, 70, 0.3); */
 }
 
 .submit-btn i {
@@ -1986,10 +1988,24 @@ button[type="submit"]:hover {
 .meal-table th,
 .meal-table td {
     padding: 10px;
-    text-align: left;
+    text-align: center;
     border: 1px solid #ddd;
 }
 
+.meal-table th {
+    background-color: #FFC107;
+    color: black;
+}
+
+.btn-edit{
+    background-color: #FFC107;
+    color: black;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    width: 100%;
+}
 @media screen and (max-width: 768px) {
     .meal-table {
         display: block;
@@ -2005,5 +2021,41 @@ button[type="submit"]:hover {
         width: 100%;
         display: table;
         table-layout: fixed;
+    }
+}
+
+
+.spinner-border {
+    animation: spinner-border 0.75s linear infinite;
+}
+
+@keyframes spinner-border {
+    to { transform: rotate(360deg); }
+}
+
+.toast {
+    transition: opacity 0.3s ease;
+}
+
+.text-success {
+    color: #28a745 !important;
+}
+
+.text-warning {
+    color: #ffc107 !important;
+}
+
+@media (max-width: 768px) {
+    .shopping-cart .card-body {
+        max-height: 500px;
+    }
+    
+    .d-flex.justify-content-between {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    .form-control, .form-select {
+        width: 100% !important;
     }
 }

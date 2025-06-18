@@ -2,9 +2,102 @@ document.addEventListener("DOMContentLoaded", () => {
   displayProfile();
 });
 
+// const displayProfile = () => {
+//   const user_id = localStorage.getItem("user_id");
+//   const token = localStorage.getItem("token");
+
+//   if (!token) {
+//     console.error("No authentication token found. Please log in.");
+//     return;
+//   }
+
+//   fetch(`https://mess-management-system-omega.vercel.app/users/${user_id}/`, {
+//     method: "GET",
+//     headers: { Authorization: `Token ${token}` },
+//   })
+//     .then((res) => {
+//       if (!res.ok) throw new Error("Failed to fetch user profile");
+//       return res.json();
+//     })
+//     .then((user) => {
+//       document.getElementById("profile-info").innerHTML = `
+//             <div class="card-body pt-5 px-4 pb-4 text-center">
+//             <!-- Profile image with shadow and border -->
+//             <div class="profile-image-container mx-auto mb-4">
+//                 <img src="${user.profile_image || "../image/young.avif"}"
+//                     class="profile-image img-fluid rounded-circle border-white border-4 shadow"
+//                     alt="${user.first_name}'s profile picture">
+//             </div>
+
+//             <!-- User name with subtle decoration -->
+//             <h2 class="card-title mb-3 fw-bold text-gradient">${
+//               user.first_name
+//             } ${user.last_name}</h2>
+//             <p class="text-muted mb-4">${user.user_type || "Member"}</p>
+
+//             <!-- Profile details in a clean layout -->
+//             <div class="profile-details-container">
+//                 <div class="detail-row">
+//                     <span class="detail-label">Username: </span>
+//                     <span class="detail-value">${user.username}</span>
+//                 </div>
+//                 <div class="detail-row">
+//                     <span class="detail-label">Email: </span>
+//                     <span class="detail-value">${user.email}</span>
+//                 </div>
+//                 <div class="detail-row">
+//                     <span class="detail-label">Registration No:</span>
+//                     <span class="detail-value">${user.reg_no}</span>
+//                 </div>
+//                 <div class="detail-row">
+//                     <span class="detail-label">Education:</span>
+//                     <span class="detail-value">${
+//                       user.education_details || "N/A"
+//                     }</span>
+//                 </div>
+//                 <div class="detail-row">
+//                     <span class="detail-label">Address:</span>
+//                     <span class="detail-value">${user.address || "N/A"}</span>
+//                 </div>
+//                 <div class="detail-row">
+//                     <span class="detail-label">Status: </span>
+//                     <span class="detail-value badge ${
+//                       user.is_approved ? "bg-success" : "bg-warning"
+//                     }">
+//                         ${user.is_approved ? "Approved" : "Pending"}
+//                     </span>
+//                 </div>
+//                 <div class="detail-row">
+//                     <span class="detail-label">Phone: </span>
+//                     <span class="detail-value">${
+//                       user.contact_number || "N/A"
+//                     }</span>
+//                 </div>
+//             </div>
+
+//             <!-- Action buttons with better spacing and hover effects -->
+//             <div class="profile-actions mt-4 d-flex flex-column flex-md-row justify-content-center gap-3">
+//                 <button class="btn btn-outline-secondary px-4 py-2 rounded-pill fw-medium update-profile" onclick="updateProfile()">
+//                     <i class="bi bi-pencil-square me-2"></i>Update Profile
+//                 </button>
+//                 <button class="btn btn-outline-secondary px-4 py-2 rounded-pill fw-medium change-password" onclick="changePassword()">
+//                     <i class="bi bi-key me-2"></i>Change Password
+//                 </button>
+//             </div>
+//         `;
+//     })
+//     .catch((error) => {
+//       console.error("Error fetching profile:", error);
+//       document.getElementById(
+//         "profile-info"
+//       ).innerHTML = `<p class="text-danger">Failed to load profile information.</p>`;
+//     });
+// };
+
 const displayProfile = () => {
   const user_id = localStorage.getItem("user_id");
   const token = localStorage.getItem("token");
+  const isAdminPage = window.location.pathname.includes("admin_profile.html");
 
   if (!token) {
     console.error("No authentication token found. Please log in.");
@@ -20,47 +113,119 @@ const displayProfile = () => {
       return res.json();
     })
     .then((user) => {
-      document.getElementById("profile-info").innerHTML = `
+      const profileHTML = isAdminPage
+        ? generateAdminProfileHTML(user)
+        : generateUserProfileHTML(user);
+
+      document.getElementById("profile-info").innerHTML = profileHTML;
+    })
+    .catch((error) => {
+      console.error("Error fetching profile:", error);
+      document.getElementById(
+        "profile-info"
+      ).innerHTML = `<div class="alert alert-danger">Failed to load profile information.</div>`;
+    });
+};
+
+function generateAdminProfileHTML(user) {
+  return `
+    <div class="card shadow-sm">
+      <div class="card-body p-4">
+        <div class="d-flex flex-column flex-md-row align-items-center">
+          <!-- Profile Image -->
+          <div class="mb-3 mb-md-0 me-md-4">
+            <img src="${user.profile_image || "../image/young.avif"}" 
+                 class="rounded-circle border" 
+                 style="width: 120px; height: 120px; object-fit: cover;" 
+                 alt="Profile image">
+          </div>
+          
+          <!-- Profile Details -->
+          <div class="flex-grow-1">
+            <h3 class="mb-2">${user.first_name} ${user.last_name}</h3>
+            <span class="badge bg-primary mb-3">${
+              user.user_type || "Admin"
+            }</span>
+            
+            <div class="row">
+              <div class="col-md-6">
+                <p><strong>Username:</strong> ${user.username}</p>
+                <p><strong>Email:</strong> ${user.email}</p>
+                <p><strong>Registration No:</strong> ${user.reg_no || "N/A"}</p>
+              </div>
+              <div class="col-md-6">
+                <p><strong>Status:</strong> 
+                  <span class="badge ${
+                    user.is_approved ? "bg-success" : "bg-warning"
+                  }">
+                    ${user.is_approved ? "Approved" : "Pending"}
+                  </span>
+                </p>
+                <p><strong>Phone:</strong> ${user.contact_number || "N/A"}</p>
+                <p><strong>Joined:</strong> ${new Date(
+                  user.date_joined
+                ).toLocaleDateString()}</p>
+              </div>
+            </div>
+            
+            <!-- Admin-specific actions -->
+            <div class="d-flex gap-2 mt-3">
+              <button class="btn btn-outline-primary" onclick="updateProfile()">
+                <i class="fas fa-edit me-2"></i>Edit Profile
+              </button>
+              <button class="btn btn-outline-secondary" onclick="changePassword()">
+                <i class="fas fa-key me-2"></i>Change Password
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  `;
+}
+
+function generateUserProfileHTML(user) {
+  return `
             <div class="card-body pt-5 px-4 pb-4 text-center">
             <!-- Profile image with shadow and border -->
             <div class="profile-image-container mx-auto mb-4">
-                <img src="${user.profile_image || "../image/young.avif"}" 
-                    class="img-fluid rounded-circle border-white border-4 shadow" 
+                <img src="${user.profile_image || "../image/young.avif"}"
+                    class="profile-image img-fluid rounded-circle border-white border-4 shadow"
                     alt="${user.first_name}'s profile picture">
             </div>
-            
+
             <!-- User name with subtle decoration -->
             <h2 class="card-title mb-3 fw-bold text-gradient">${
               user.first_name
             } ${user.last_name}</h2>
             <p class="text-muted mb-4">${user.user_type || "Member"}</p>
-            
+
             <!-- Profile details in a clean layout -->
             <div class="profile-details-container">
                 <div class="detail-row">
-                    <span class="detail-label">Username</span>
+                    <span class="detail-label">Username: </span>
                     <span class="detail-value">${user.username}</span>
                 </div>
                 <div class="detail-row">
-                    <span class="detail-label">Email</span>
+                    <span class="detail-label">Email: </span>
                     <span class="detail-value">${user.email}</span>
                 </div>
                 <div class="detail-row">
-                    <span class="detail-label">Registration No</span>
+                    <span class="detail-label">Registration No:</span>
                     <span class="detail-value">${user.reg_no}</span>
                 </div>
                 <div class="detail-row">
-                    <span class="detail-label">Education</span>
+                    <span class="detail-label">Education:</span>
                     <span class="detail-value">${
                       user.education_details || "N/A"
                     }</span>
                 </div>
                 <div class="detail-row">
-                    <span class="detail-label">Address</span>
+                    <span class="detail-label">Address:</span>
                     <span class="detail-value">${user.address || "N/A"}</span>
                 </div>
                 <div class="detail-row">
-                    <span class="detail-label">Status</span>
+                    <span class="detail-label">Status: </span>
                     <span class="detail-value badge ${
                       user.is_approved ? "bg-success" : "bg-warning"
                     }">
@@ -68,13 +233,13 @@ const displayProfile = () => {
                     </span>
                 </div>
                 <div class="detail-row">
-                    <span class="detail-label">Phone</span>
+                    <span class="detail-label">Phone: </span>
                     <span class="detail-value">${
                       user.contact_number || "N/A"
                     }</span>
                 </div>
             </div>
-            
+
             <!-- Action buttons with better spacing and hover effects -->
             <div class="profile-actions mt-4 d-flex flex-column flex-md-row justify-content-center gap-3">
                 <button class="btn btn-outline-secondary px-4 py-2 rounded-pill fw-medium update-profile" onclick="updateProfile()">
@@ -85,14 +250,7 @@ const displayProfile = () => {
                 </button>
             </div>
         `;
-    })
-    .catch((error) => {
-      console.error("Error fetching profile:", error);
-      document.getElementById(
-        "profile-info"
-      ).innerHTML = `<p class="text-danger">Failed to load profile information.</p>`;
-    });
-};
+}
 
 const updateProfile = () => {
   const newEducation = prompt("Enter your updated education details:");

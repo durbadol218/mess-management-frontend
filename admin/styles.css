@@ -1,30 +1,30 @@
 body {
     font-family: Arial, sans-serif;
-    background-color: #f8f9fa; /* Light background for the main content */
+    background-color: #f8f9fa;
 }
 
 .sidebar {
-    height: 100vh; /* Full height */
-    position: fixed; /* Fixed sidebar */
+    height: 100vh;
+    position: fixed;
     top: 0;
     left: 0;
-    padding-top: 20px; /* Padding at the top */
-    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    padding-top: 20px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
 }
 
 .nav-link {
-    padding: 10px 15px; /* Padding for the links */
-    transition: background-color 0.3s; /* Smooth transition for hover */
+    padding: 10px 15px;
+    transition: background-color 0.3s;
 }
 
 .nav-link:hover {
-    background-color: #5CAF90; /* Change color on hover */
+    background-color: #5CAF90;
 }
 
 h5 {
-    font-size: 1.2rem; /* Increase font size for the sidebar title */
+    font-size: 1.2rem;
 }
 
 .text-light {
-    color: #ffffff !important; /* Ensure text is white */
+    color: #ffffff !important;
 }

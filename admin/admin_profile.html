@@ -221,6 +221,34 @@
         html[data-bs-theme="light"] .theme-toggle .fa-sun {
             display: none;
         }
+
+
+        .loader-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 9999;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .loader-content {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .spinner {
+            width: 3rem;
+            height: 3rem;
+        }
     </style>
 </head>
 
@@ -350,7 +378,7 @@
             <main class="content px-3 py-2">
                 <div class="container-fluid py-2">
                     <div class="row justify-content-center">
-                        <div id="profile-info" class="col-md-10 col-lg-8 mb-4">
+                        <div id="profile-info" class="col-md-10 col-lg-8 mb-4 bg-blue">
                             <!-- User profile information will be injected here by JS -->
 
                         </div>

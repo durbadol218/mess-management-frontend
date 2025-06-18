@@ -27,60 +27,64 @@
     </head>
     <body>
         <header>
-            <div class="container">
-                <div class="row align-items-center">
-                    <div class="col-lg-12">
-                        <nav class="navbar navbar-expand-lg fixed-top custom-navbar">
-                            <div class="container-fluid">
-                                <a class="navbar-brand me-auto" href="index.html">Amar Mess</a>
-                                <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar"
-                                    aria-labelledby="offcanvasNavbarLabel">
-                                    <div class="offcanvas-header">
-                                        <h5 class="offcanvas-title" id="offcanvasNavbarLabel">AmarMess</h5>
-                                        <button type="button" class="btn-close" data-bs-dismiss="offcanvas"
-                                            aria-label="Close"></button>
-                                    </div>
-                                    <div class="offcanvas-body">
-                                        <ul class="navbar-nav justify-content-center flex-grow-1 pe-3">
-                                            <li class="nav-item me-3">
-                                                <a class="nav-link active custom-nav-link" aria-current="page"
-                                                    href="index.html">Home</a>
-                                            </li>
-                                            <li class="nav-item me-3">
-                                                <a class="nav-link custom-nav-link" href="about.html">About</a>
-                                            </li>
-                                            <li class="nav-item me-3">
-                                                <a class="nav-link custom-nav-link" href="./contact.html">Contact Us</a>
-                                            </li>
-                                            <li class="nav-item me-3">
-                                                <a class="nav-link custom-nav-link" href="./meals.html">Meals Menu</a>
-                                            </li>
-                                            <li class="nav-item me-3">
-                                                <a class="nav-link custom-nav-link" href="./bills.html">Billing</a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-    
-                                <div class="me-4">
-                                    <i class="fas fa-search" data-bs-toggle="modal" data-bs-target="#searchModal"></i>
-                                </div>
-    
-                                <a href="./login.html" class="btn btn-outline-light login-button">Login</a>
-                                <a href="./register.html" class="btn btn-outline-light register-button">Register</a>
-                                <a href="./profile.html" class="btn btn-outline-light profile-link d-none profile-button">Profile</a>
-                                <a onclick="handleLogout()" class="btn btn-outline-light logout-button d-none logout-button">Logout</a>
-        
-                                <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas"
-                                    data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
-                                    <span class="navbar-toggler-icon"></span>
-                                </button>
-                            </div>
-                        </nav>
+        <nav class="navbar navbar-expand-lg py-3 shadow-sm sticky-top bg-white">
+            <div class="container px-4">
+                <a class="navbar-brand" href="index.html">
+                    <img src="./image/logo_again.png" alt="Logo" style="max-width: 200px; width: 100%;">
+                </a>
+
+                <!-- Toggler -->
+                <button class="navbar-toggler border-0" type="button" data-bs-toggle="offcanvas"
+                    data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
+                    <i class="fa-solid fa-bars bar-icon"></i>
+                </button>
+
+                <!-- Offcanvas Menu -->
+                <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar"
+                    aria-labelledby="offcanvasNavbarLabel">
+                    <div class="offcanvas-header">
+                        <h5 class="offcanvas-title" id="offcanvasNavbarLabel">
+                            <img src="./image/logo_again.png" alt="Logo" style="max-width: 200px;">
+                        </h5>
+                        <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"
+                            aria-label="Close"></button>
+                    </div>
+
+                    <div class="offcanvas-body">
+                        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                            <li class="nav-item px-2">
+                                <a class="nav-link" href="./index.html">Home</a>
+                            </li>
+                            <li class="nav-item px-2">
+                                <a class="nav-link" href="./about.html">About</a>
+                            </li>
+                            <li class="nav-item px-2">
+                                <a class="nav-link" href="./contact.html">Contact Us</a>
+                            </li>
+                            <li class="nav-item px-2">
+                                <a class="nav-link" href="./meals.html">Meals Menu</a>
+                            </li>
+                            <li class="nav-item px-2">
+                                <a class="nav-link" href="./bills.html">Billing</a>
+                            </li>
+                            <li class="nav-item px-2">
+                                <a class="nav-link" href="./bill_history.html">Bill History</a>
+                            </li>
+                        </ul>
+
+                        <div>
+                            <a href="./login.html" class="btn btn-outline-light login-button">Login</a>
+                            <a href="./register.html" class="btn btn-outline-light register-button">Register</a>
+                            <a href="./profile.html"
+                                class="btn btn-outline-light profile-link d-none profile-button">Profile</a>
+                            <a onclick="handleLogout()"
+                                class="btn btn-outline-light logout-button d-none logout-button">Logout</a>
+                        </div>
                     </div>
                 </div>
             </div>
-        </header>
+        </nav>
+    </header>
 
         <section class="h-100 h-custom">
             <div class="container h-100">
