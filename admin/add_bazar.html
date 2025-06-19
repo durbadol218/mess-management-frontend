@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" data-bs-theme="light">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
@@ -55,12 +55,11 @@
             color: var(--bs-emphasis-color);
         }
 
-        /* Layout for admin dashboard skeleton */
-
         .wrapper {
             align-items: stretch;
             display: flex;
             width: 100%;
+            background-color: white !important;
         }
 
         #sidebar {
@@ -78,10 +77,8 @@
             overflow: hidden;
             transition: all 0.35s ease-in-out;
             width: 100%;
-            background: var(--bs-dark-bg-subtle);
+            /* background: var(--bs-dark-bg-subtle); */
         }
-
-        /* Sidebar Elements Style */
 
         .sidebar-item {
             transition: background-color 0.3s ease-in-out;
@@ -182,13 +179,9 @@
             width: 100%;
         }
 
-        /* Sidebar Toggle */
-
         #sidebar.collapsed {
             margin-left: -264px;
         }
-
-        /* Footer and Nav */
 
         @media (max-width:767.98px) {
 
@@ -206,35 +199,35 @@
             }
         }
 
-        /* Theme Toggler */
-
-        .theme-toggle {
+        .loader-overlay {
             position: fixed;
-            top: 50%;
-            transform: translateY(-65%);
-            text-align: center;
-            z-index: 10;
-            right: 0;
-            left: auto;
-            border: none;
-            background-color: var(--bs-body-color);
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 9999;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
 
-        html[data-bs-theme="dark"] .theme-toggle .fa-sun,
-        html[data-bs-theme="light"] .theme-toggle .fa-moon {
-            cursor: pointer;
-            padding: 10px;
-            display: block;
-            font-size: 1.25rem;
-            color: #FFF;
+        .loader-content {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
-        html[data-bs-theme="dark"] .theme-toggle .fa-moon {
-            display: none;
+        .spinner {
+            width: 3rem;
+            height: 3rem;
         }
 
-        html[data-bs-theme="light"] .theme-toggle .fa-sun {
-            display: none;
+        .navbar{
+            height: 60px;
         }
     </style>
 </head>
@@ -252,7 +245,7 @@
                         Admin Elements
                     </li>
                     <li class="sidebar-item">
-                        <a href="#" class="sidebar-link">
+                        <a href="index.html" class="sidebar-link">
                             <i class="fa-solid fa-list pe-2"></i>
                             Admin Dashboard
                         </a>
@@ -263,12 +256,6 @@
                             Pages
                         </a>
                         <ul id="pages" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
-                            <!-- <li class="sidebar-item">
-                                <a href="admin_profile.html" class="sidebar-link">
-                                    <i class="fa-regular fa-user"></i>
-                                    <span>Profile</span>
-                                </a>
-                            </li> -->
                             <li class="sidebar-item">
                                 <a href="add_user.html" class="sidebar-link">
                                     <i class="fa-regular fa-plus pe-2"></i>
@@ -297,6 +284,12 @@
                                 <a href="all_users.html" class="sidebar-link">
                                     <i class="fas fa-users pe-2"></i>
                                     <span>Users</span>
+                                </a>
+                            </li>
+                            <li class="sidebar-item">
+                                <a href="users_bill.html" class="sidebar-link">
+                                    <i class="fa-solid fa-money-bill pe-2"></i>
+                                    <span>Users Bill</span>
                                 </a>
                             </li>
                         </ul>
@@ -368,7 +361,7 @@
 
             <main class="content px-3 py-2">
                 <div
-                    class="container-fluid p-4 align-items-center border rounded-5 p-3 bg-white shadow w-50 m-auto mt-5">
+                    class="container-fluid p-4 align-items-center border rounded-5 bg-white shadow w-50 m-auto mt-3">
                     <h2 class="text-center mb-4">Bazar Schedule</h2>
 
                     <!-- Table to Show Existing Bazar Schedules -->
@@ -416,12 +409,8 @@
                     </form>
                 </div>
             </main>
-            <a href="#" class="theme-toggle">
-                <i class="fa-regular fa-moon"></i>
-                <i class="fa-regular fa-sun"></i>
-            </a>
 
-            <footer class="footer">
+            <footer class="footer mt-5>
                 <div class="container-fluid">
                     <div class="row text-muted">
                         <div class="col-6 text-start">
@@ -453,39 +442,6 @@
         </div>
     </div>
 
-    <script>
-        const sidebarToggle = document.querySelector("#sidebar-toggle");
-        sidebarToggle.addEventListener("click", function () {
-            document.querySelector("#sidebar").classList.toggle("collapsed");
-        });
-
-        document.querySelector(".theme-toggle").addEventListener("click", () => {
-            toggleLocalStorage();
-            toggleRootClass();
-        });
-
-        function toggleRootClass() {
-            const current = document.documentElement.getAttribute('data-bs-theme');
-            const inverted = current == 'dark' ? 'light' : 'dark';
-            document.documentElement.setAttribute('data-bs-theme', inverted);
-        }
-
-        function toggleLocalStorage() {
-            if (isLight()) {
-                localStorage.removeItem("light");
-            } else {
-                localStorage.setItem("light", "set");
-            }
-        }
-
-        function isLight() {
-            return localStorage.getItem("light");
-        }
-
-        if (isLight()) {
-            toggleRootClass();
-        }
-    </script>
     <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script> -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js"></script>
     <script src="admin_admin.js"></script>

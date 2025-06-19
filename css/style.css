@@ -935,7 +935,8 @@ p {
     width: 100%;
     padding: 0.8rem;
     background: #FFCA2C;
-    color: white;
+    color: dark;
+    font-weight: bold;
     border: none;
     border-radius: 4px;
     cursor: pointer;
