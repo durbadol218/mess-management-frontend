@@ -1,42 +1,44 @@
-const hamburger = document.querySelector("#toggle-btn");
+document.addEventListener('DOMContentLoaded', function() {
+    const sidebar = document.getElementById('sidebar');
+    const sidebarToggle = document.getElementById('sidebar-toggle');
+    const overlay = document.createElement('div');
+    overlay.className = 'sidebar-overlay';
+    sidebar.parentNode.insertBefore(overlay, sidebar.nextSibling);
 
-hamburger.addEventListener("click", function () {
-  document.querySelector("#sidebar").classList.toggle("expand");
+    function toggleSidebar() {
+        sidebar.classList.toggle('collapsed');
+        document.body.classList.toggle('sidebar-open');
+    }
+
+    sidebarToggle.addEventListener('click', function(e) {
+        e.stopPropagation();
+        toggleSidebar();
+    });
+
+    overlay.addEventListener('click', function() {
+        sidebar.classList.remove('collapsed');
+        document.body.classList.remove('sidebar-open');
+    });
+
+    document.querySelectorAll('.sidebar-link').forEach(link => {
+        link.addEventListener('click', function() {
+            if (window.innerWidth < 992) {
+                sidebar.classList.remove('collapsed');
+                document.body.classList.remove('sidebar-open');
+            }
+        });
+    });
+    function handleResize() {
+        if (window.innerWidth >= 992) {
+            sidebar.classList.remove('collapsed');
+            document.body.classList.remove('sidebar-open');
+        }
+    }
+
+    window.addEventListener('resize', handleResize);
+    handleResize();
 });
 
-const sidebarToggle = document.querySelector("#sidebar-toggle");
-sidebarToggle.addEventListener("click", function () {
-  document.querySelector("#sidebar").classList.toggle("collapsed");
-});
-
-document.querySelector(".theme-toggle").addEventListener("click", () => {
-  toggleLocalStorage();
-  toggleRootClass();
-});
-
-function toggleRootClass() {
-  const current = document.documentElement.getAttribute("data-bs-theme");
-  const inverted = current == "dark" ? "light" : "dark";
-  document.documentElement.setAttribute("data-bs-theme", inverted);
-}
-
-function toggleLocalStorage() {
-  if (isLight()) {
-    localStorage.removeItem("light");
-  } else {
-    localStorage.setItem("light", "set");
-  }
-}
-
-function isLight() {
-  return localStorage.getItem("light");
-}
-
-if (isLight()) {
-  toggleRootClass();
-}
-
-// Loader Utility Functions
 const showLoader = (message = "Loading...") => {
   const loaderHTML = `
     <div class="loader-overlay">
@@ -56,23 +58,18 @@ const hideLoader = () => {
   if (loader) loader.remove();
 };
 
-// Add to all navigation clicks
 document.addEventListener("DOMContentLoaded", () => {
-  // Handle sidebar link clicks
+
   document.querySelectorAll(".sidebar-link").forEach((link) => {
     link.addEventListener("click", function (e) {
       if (this.getAttribute("href") === "#") return;
 
-      // Show loader with contextual message
       const linkText = this.textContent.trim();
       showLoader(`Loading ${linkText}...`);
 
-      // Simulate loading (remove this in production)
       setTimeout(hideLoader, 1000);
     });
   });
-
-  // Handle button clicks
   document.querySelectorAll("button[onclick]").forEach((button) => {
     button.addEventListener("click", function () {
       showLoader(`Processing ${this.textContent.trim()}...`);

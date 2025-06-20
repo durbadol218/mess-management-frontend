@@ -226,6 +226,100 @@
             width: 3rem;
             height: 3rem;
         }
+
+        @media (max-width: 992px) {
+            #sidebar {
+                position: fixed;
+                z-index: 1000;
+                left: -264px;
+                top: 0;
+                bottom: 0;
+                transition: all 0.35s ease-in-out;
+            }
+
+            #sidebar.collapsed {
+                left: 0;
+                box-shadow: 4px 0 15px rgba(0, 0, 0, 0.2);
+            }
+
+            .sidebar-overlay {
+                position: fixed;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background-color: rgba(0, 0, 0, 0.5);
+                z-index: 999;
+                opacity: 0;
+                visibility: hidden;
+                transition: all 0.35s ease-in-out;
+            }
+
+            #sidebar.collapsed+.sidebar-overlay {
+                opacity: 1;
+                visibility: visible;
+            }
+
+            .navbar {
+                width: 100%;
+            }
+
+            .main {
+                transition: margin-left 0.35s ease-in-out;
+            }
+
+            .content {
+                padding: 1rem;
+            }
+
+            .illustration {
+                padding: 1rem;
+            }
+
+            .illustration .row {
+                flex-direction: column;
+            }
+
+            .illustration-img {
+                max-width: 100px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .sidebar-logo {
+                padding: 1rem;
+            }
+
+            .sidebar-link {
+                padding: 0.5rem 1.25rem;
+            }
+
+            .row>.col-12 {
+                margin-bottom: 1rem;
+            }
+
+            .avatar {
+                height: 32px;
+                width: 32px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            #sidebar {
+                min-width: 240px;
+                max-width: 240px;
+            }
+
+            .sidebar-header {
+                font-size: 0.65rem;
+                padding: 1rem 1rem 0.25rem;
+            }
+
+            .navbar {
+                padding: 0.5rem;
+            }
+        }
+        
     </style>
 </head>
 
@@ -335,6 +429,7 @@
                 </ul>
             </div>
         </aside>
+        
         <div class="main">
             <nav class="navbar navbar-expand px-3 border-bottom">
                 <button class="btn" id="sidebar-toggle" type="button">
@@ -356,77 +451,55 @@
                 </div>
             </nav>
 
-            <main class="content px-3 py-2">
+            <main class="content px-2 px-lg-3 py-2">
                 <div class="container-fluid">
                     <div class="mb-3">
-                        <h4>Admin Dashboard</h4>
+                        <h4 class="text-center text-md-start">Admin Dashboard</h4>
                     </div>
+
                     <div class="row">
-                        <div class="col-12 col-md-12 d-flex">
+                        <div class="col-12 d-flex mb-3 mb-lg-0">
                             <div class="card flex-fill border-0 illustration">
                                 <div class="card-body p-0 d-flex flex-fill">
-                                    <div class="row g-0 w-100">
-                                        <div class="col-6">
-                                            <div class="p-3 m-1">
-                                                <h4>Welcome Back, Admin Hello!</h4>
+                                    <div class="row g-0 w-100 align-items-center">
+                                        <div class="col-lg-6 col-md-7 col-12">
+                                            <div class="p-2 p-md-3 m-1 text-center text-md-start">
+                                                <h4 class="mb-1 mb-md-2">Welcome Back, Admin Hello!</h4>
                                                 <p class="mb-0">Admin Dashboard, AmarMess</p>
                                             </div>
                                         </div>
-                                        <div class="col-6 align-self-end text-end">
+                                        <div
+                                            class="col-lg-6 col-md-5 col-12 d-flex justify-content-center justify-content-md-end">
                                             <img src="../image/customer-support.jpg" class="img-fluid illustration-img"
-                                                alt="">
+                                                style="max-height: 120px; max-width: 180px" alt="Admin illustration">
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <!-- <div class="col-12 col-md-6 d-flex">
-                            <div class="card flex-fill border-0">
-                                <div class="card-body py-4">
-                                    <div class="d-flex align-items-start">
-                                        <div class="flex-grow-1">
-                                            <h4 class="mb-2">
-                                                100
-                                            </h4>
-                                            <p class="mb-2">
-                                                Total Borders
-                                            </p>
-                                            <div class="mb-0">
-                                                <span class="badge text-success me-2">
-                                                    +9.0%
-                                                </span>
-                                                <span class="text-muted">
-                                                    Since Last Month
-                                                </span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div> -->
                     </div>
                 </div>
             </main>
 
-            <footer class="footer">
+            <footer class="footer mt-auto py-2 py-md-3">
                 <div class="container-fluid">
-                    <div class="row text-muted">
-                        <div class="col-6 text-start">
+                    <div class="row text-muted align-items-center">
+                        <div class="col-12 col-md-6 text-center text-md-start mb-2 mb-md-0">
                             <p class="mb-0">
                                 <a href="#" class="text-muted">
                                     <strong>AmarMess</strong>
                                 </a>
                             </p>
                         </div>
-                        <div class="col-6 text-end">
-                            <ul class="list-inline">
-                                <li class="list-inline-item">
+                        <div class="col-12 col-md-6 text-center text-md-end">
+                            <ul class="list-inline mb-0">
+                                <li class="list-inline-item mb-1 mb-md-0 me-0 me-md-2">
                                     <a href="#" class="text-muted">Contact</a>
                                 </li>
-                                <li class="list-inline-item">
+                                <li class="list-inline-item mb-1 mb-md-0 me-0 me-md-2">
                                     <a href="#" class="text-muted">About Us</a>
                                 </li>
-                                <li class="list-inline-item">
+                                <li class="list-inline-item mb-1 mb-md-0 me-0 me-md-2">
                                     <a href="#" class="text-muted">Terms</a>
                                 </li>
                                 <li class="list-inline-item">
@@ -440,6 +513,7 @@
         </div>
     </div>
     <script src="admin_admin.js"></script>
+    <script src="./script.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/js/bootstrap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js"></script>

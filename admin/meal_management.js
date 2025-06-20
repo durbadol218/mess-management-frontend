@@ -49,9 +49,17 @@ async function loadMeals() {
                     <td>
                         <button class="btn ${statusClass}" onclick="toggleMealStatus(${meal.id}, ${meal.is_active})">${statusText}</button>
                     </td>
-                    <td>
-                        <button class="btn btn-warning" onclick="openEditMealModal(${meal.id})">Edit</button>
-                        <button class="btn btn-danger" onclick="deleteMeal(${meal.id})">Delete</button>
+                    <td data-label="Actions">
+                        <div class="btn-group btn-group-sm" role="group">
+                            <button class="btn btn-outline-warning" onclick="openEditMealModal(${meal.id})" title="Edit">
+                                <i class="bi bi-pencil"></i>
+                                <span class="d-none d-lg-inline ms-1">Edit</span>
+                            </button>
+                            <button class="btn btn-outline-danger" onclick="deleteMeal(${meal.id})" title="Delete">
+                                <i class="bi bi-trash"></i>
+                                <span class="d-none d-lg-inline ms-1">Delete</span>
+                            </button>
+                        </div>
                     </td>
                 </tr>
             `;
