@@ -19,67 +19,94 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 const handleRegister = (event) => {
-        event.preventDefault();
+    event.preventDefault();
 
-        const form = document.getElementById("registrationForm");
-        const formData = new FormData(form);
-        const registerData = {
-            username: formData.get("username"),
-            email: formData.get("email"),
-            first_name: formData.get("first_name"),
-            last_name: formData.get("last_name"),
-            education_details: formData.get("education_details"),
-            address: formData.get("address"),
-            user_type: formData.get("user_type"),
-            seat_type: formData.get("seat_type"),
-            contact_number: formData.get("contact_number"),
-            password: formData.get("password"),
-            confirm_password: formData.get("confirm_password"),
-        };
-
-        const successAlert = document.getElementById("regi-alert-success");
-        const errorAlert = document.getElementById("regi-alert-error");
-        const spinner = document.getElementById("register-spinner");
-        const registerButton = document.querySelector(".btnRegister");
-
-        successAlert.classList.add("d-none");
-        errorAlert.classList.add("d-none");
-        spinner.classList.remove("d-none");
-        registerButton.disabled = true;
-
-        fetch("https://mess-management-system-omega.vercel.app/register/", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify(registerData),
-        })
-            .then((response) => {
-                if (!response.ok) {
-                    return response.json().then((data) => {
-                        throw new Error(data.error || "Registration failed");
-                    });
-                }
-                return response.json();
-            })
-            .then((data) => {
-                successAlert.classList.remove("d-none");
-                successAlert.innerText = "Registration successful! Redirecting...";
-                setTimeout(() => {
-                    window.location.href = "login.html";
-                }, 3000);
-            })
-            .catch((err) => {
-                console.error("Registration error:", err.message);
-                errorAlert.classList.remove("d-none");
-                errorAlert.innerText =
-                    err.message || "Registration failed. Please try again.";
-            })
-            .finally(() => {
-                spinner.classList.add("d-none");
-                registerButton.disabled = false;
-            });
+    // Clear previous states
+    document.querySelectorAll('.is-invalid').forEach(el => el.classList.remove('is-invalid'));
+    document.getElementById("registration-error-message").textContent = "";
+    
+    const form = document.getElementById("registrationForm");
+    const formData = new FormData(form);
+    const registerData = {
+        username: formData.get("username"),
+        email: formData.get("email"),
+        first_name: formData.get("first_name"),
+        last_name: formData.get("last_name"),
+        education_details: formData.get("education_details"),
+        address: formData.get("address"), // This is optional
+        user_type: formData.get("user_type"),
+        seat_type: formData.get("seat_type"),
+        contact_number: formData.get("contact_number"),
+        password: formData.get("password"),
+        confirm_password: formData.get("confirm_password"),
     };
+
+    // Validate all required fields
+    let isValid = true;
+    const errorMessage = document.getElementById("registration-error-message");
+
+    // Check each field except address
+    const requiredFields = ['username', 'email', 'first_name', 'last_name', 
+                          'education_details', 'user_type', 'seat_type',
+                          'contact_number', 'password', 'confirm_password'];
+
+    requiredFields.forEach(field => {
+        if (!registerData[field] || registerData[field].trim() === '') {
+            isValid = false;
+            document.getElementsByName(field)[0].classList.add('is-invalid');
+        }
+    });
+
+    // Special password validation
+    if (registerData.password !== registerData.confirm_password) {
+        isValid = false;
+        document.getElementById('password').classList.add('is-invalid');
+        document.getElementById('confirm_password').classList.add('is-invalid');
+        errorMessage.textContent = "Passwords do not match";
+    }
+
+    if (!isValid) {
+        errorMessage.textContent = errorMessage.textContent || "Please fill all required fields";
+        return;
+    }
+
+    // Proceed with registration if validation passes
+    const spinner = document.getElementById("register-spinner");
+    const registerButton = document.querySelector(".btnRegister");
+
+    spinner.classList.remove("d-none");
+    registerButton.disabled = true;
+
+    fetch("https://mess-management-system-omega.vercel.app/register/", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(registerData)
+    })
+    .then(handleResponse)
+    .then(() => {
+        document.getElementById("regi-alert-success").classList.remove("d-none");
+        document.getElementById("regi-alert-success").textContent = "Registration successful! Redirecting...";
+        setTimeout(() => window.location.href = "login.html", 2000);
+    })
+    .catch(err => {
+        document.getElementById("regi-alert-error").classList.remove("d-none");
+        document.getElementById("regi-alert-error").textContent = 
+            err.message || "Registration failed. Please try again.";
+    })
+    .finally(() => {
+        spinner.classList.add("d-none");
+        registerButton.disabled = false;
+    });
+};
+
+function handleResponse(response) {
+    if (!response.ok) {
+        return response.json().then(data => {
+            throw new Error(data.error || "Registration failed");
+        });
+    }
+    return response.json();
+}
 
 const handleLogin = (event) => {
     event.preventDefault();

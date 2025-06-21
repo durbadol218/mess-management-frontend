@@ -32,7 +32,8 @@
                 <!-- Right-side form -->
                 <div class="col-lg-6 bg-white p-4 p-lg-5">
                     <h2 class="text-center fw-bold mb-4">Register Now</h2>
-
+                    <div id="regi-alert-success" class="alert alert-success d-none" role="alert"></div>
+                    <div id="regi-alert-error" class="alert alert-danger d-none" role="alert"></div>
                     <form id="registrationForm" onsubmit="handleRegister(event)" method="post" novalidate>
                         <div class="row">
                             <div class="col-md-6 mb-3">
@@ -132,7 +133,10 @@
 
     <div class="container mt-3">
         <div id="regi-alert-success" class="alert alert-success d-none fs-3" role="alert">
-            Registration successful! Redirecting...
+            Registration successful! Please check your email for activation link. Redirecting...
+        </div>
+        <div id="regi-alert-warning" class="alert alert-warning d-none fs-3" role="alert">
+            Activation link sent! Check your email to activate your account.
         </div>
         <div id="regi-alert-error" class="alert alert-danger d-none fs-3" role="alert">
             Registration Not Successful. Please try again.
