@@ -18,6 +18,69 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 });
 
+// const handleRegister = (event) => {
+//         event.preventDefault();
+
+//         const form = document.getElementById("registrationForm");
+//         const formData = new FormData(form);
+//         const registerData = {
+//             username: formData.get("username"),
+//             email: formData.get("email"),
+//             first_name: formData.get("first_name"),
+//             last_name: formData.get("last_name"),
+//             education_details: formData.get("education_details"),
+//             address: formData.get("address"),
+//             user_type: formData.get("user_type"),
+//             seat_type: formData.get("seat_type"),
+//             contact_number: formData.get("contact_number"),
+//             password: formData.get("password"),
+//             confirm_password: formData.get("confirm_password"),
+//         };
+
+//         const successAlert = document.getElementById("regi-alert-success");
+//         const errorAlert = document.getElementById("regi-alert-error");
+//         const spinner = document.getElementById("register-spinner");
+//         const registerButton = document.querySelector(".btnRegister");
+
+//         successAlert.classList.add("d-none");
+//         errorAlert.classList.add("d-none");
+//         spinner.classList.remove("d-none");
+//         registerButton.disabled = true;
+
+//         fetch("https://mess-management-system-omega.vercel.app/register/", {
+//             method: "POST",
+//             headers: {
+//                 "Content-Type": "application/json",
+//             },
+//             body: JSON.stringify(registerData),
+//         })
+//             .then((response) => {
+//                 if (!response.ok) {
+//                     return response.json().then((data) => {
+//                         throw new Error(data.error || "Registration failed");
+//                     });
+//                 }
+//                 return response.json();
+//             })
+//             .then((data) => {
+//                 successAlert.classList.remove("d-none");
+//                 successAlert.innerText = "Registration successful! Redirecting...";
+//                 setTimeout(() => {
+//                     window.location.href = "login.html";
+//                 }, 3000);
+//             })
+//             .catch((err) => {
+//                 console.error("Registration error:", err.message);
+//                 errorAlert.classList.remove("d-none");
+//                 errorAlert.innerText =
+//                     err.message || "Registration failed. Please try again.";
+//             })
+//             .finally(() => {
+//                 spinner.classList.add("d-none");
+//                 registerButton.disabled = false;
+//             });
+//     };
+
 const handleRegister = (event) => {
     event.preventDefault();
 
