@@ -130,8 +130,6 @@
     </div>
 
 
-    <div></div>
-
     <!-- <div class="container mt-5 bg-light py-5">
         <div class="row justify-content-center">
             <div class="col-md-6 text-center">
@@ -252,7 +250,7 @@
     <section class="features-section">
         <div class="container">
             <div class="section-header">
-                <span class="section-badge">Our Advantages</span>
+                <span class="section-badge text-dark">Our Advantages</span>
                 <h2 class="section-title">Experience the <span class="highlight">Mess Life</span></h2>
                 <p class="section-subtitle">Quality living designed for students and bachelors</p>
             </div>
@@ -379,7 +377,6 @@
     </section>
 
 
-
     <!-- Fact Start -->
     <div class="container-fluid py-5">
         <div class="container">
@@ -418,7 +415,6 @@
         </div>
     </div>
     <!-- Fact Start -->
-
 
 
     <section class="facilities">
@@ -697,6 +693,37 @@
         </div>
     </div>
 
+
+
+
+    <div class="container-fluid py-5">
+        <div class="container">
+            <section class="newsletter-section py-5 bg-light" id="newsletter">
+                <div class="container">
+                    <div class="text-center mb-4">
+                        <span class="section-badge text-dark">Stay Updated</span>
+                        <h2 class="section-title">Subscribe to our <span class="highlight">Newsletter</span></h2>
+                        <p class="section-subtitle">Get the latest updates, offers, and news from our mess community
+                        </p>
+                    </div>
+                    <form class="newsletter-form mx-auto" style="max-width: 600px;" id="newsletterForm">
+                        <div class="input-group">
+                            <input type="email" class="form-control p-3" placeholder="Enter your email address" required
+                                id="emailInput">
+                            <button type="submit" class="btn btn-warning border rounded-5 text-dark">Subscribe</button>
+                        </div>
+                    </form>
+
+                    <div class="alert alert-success mt-4 text-center d-none" id="successMsg">
+                        Thank you for subscribing! We'll keep you posted.
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+
+
+
     <!-- Footer -->
     <footer class="gi-footer mt-5">
         <div class="footer-container">
@@ -799,6 +826,30 @@
                 event.stopPropagation();
             });
         });
+
+        const newsletterForm = document.getElementById('newsletterForm');
+        const emailInput = document.getElementById('emailInput');
+        const successMsg = document.getElementById('successMsg');
+
+        newsletterForm.addEventListener('submit', function (e) {
+            e.preventDefault();
+            const email = emailInput.value.trim();
+
+            if (!validateEmail(email)) {
+                alert('Please enter a valid email address!');
+                return;
+            }
+
+            setTimeout(() => {
+                successMsg.classList.remove('d-none');
+                emailInput.value = '';
+            }, 500);
+        });
+
+        function validateEmail(email) {
+            const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return re.test(String(email).toLowerCase());
+        }
     </script>
 
 </body>

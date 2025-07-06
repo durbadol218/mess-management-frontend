@@ -171,6 +171,219 @@ function handleResponse(response) {
     return response.json();
 }
 
+
+
+
+// const handleLogin = (event) => {
+//     event.preventDefault();
+
+//     const form = document.getElementById("loginForm");
+//     const formData = new FormData(form);
+//     const loginData = {
+//         username: formData.get("username"),
+//         password: formData.get("password"),
+//     };
+
+//     const successAlert = document.getElementById("login-alert-success");
+//     const errorAlert = document.getElementById("login-alert-error");
+//     const spinner = document.getElementById("login-spinner");
+//     const loginBtn = document.querySelector(".btnLogin");
+
+//     successAlert.classList.add("d-none");
+//     errorAlert.classList.add("d-none");
+//     spinner.classList.remove("d-none");
+//     loginBtn.disabled = true;
+//     loginBtn.innerText = "Logging in...";
+
+//     fetch("https://mess-management-system-omega.vercel.app/login/", {
+//         method: "POST",
+//         headers: {
+//             "Content-Type": "application/json",
+//         },
+//         body: JSON.stringify(loginData),
+//     })
+//         .then((response) => {
+//             if (!response.ok) {
+//                 return response.json().then((data) => {
+//                     throw new Error(data.error || "Login failed");
+//                 });
+//             }
+//             return response.json();
+//         })
+//         .then((data) => {
+//             if (!data.token || !data.user_id) {
+//                 throw new Error("Invalid login response from server");
+//             }
+
+//             localStorage.setItem("token", data.token);
+//             localStorage.setItem("user_id", data.user_id);
+
+//             return fetch(
+//                 `https://mess-management-system-omega.vercel.app/users/${data.user_id}/`,
+//                 {
+//                     method: "GET",
+//                     headers: {
+//                         Authorization: `Token ${data.token}`,
+//                     },
+//                 }
+//             );
+//         })
+//         .then((response) => {
+//             if (!response.ok) {
+//                 throw new Error("Failed to fetch user data");
+//             }
+//             return response.json();
+//         })
+//         .then((userData) => {
+//             successAlert.classList.remove("d-none");
+//             successAlert.innerText = "Login successful!";
+//             setTimeout(() => {
+//                 if (userData.user_type === "User") {
+//                     window.location.href = "index.html";
+//                 } else if (userData.user_type === "Admin") {
+//                     window.location.href = "admin/index.html";
+//                 } else {
+//                     throw new Error(`Unexpected user type: ${userData.user_type}`);
+//                 }
+//             }, 1000);
+//         })
+//         .catch((err) => {
+//             errorAlert.classList.remove("d-none");
+//             errorAlert.innerText = err.message || "Login failed. Please try again.";
+//         })
+//         .finally(() => {
+//             spinner.classList.add("d-none");
+//             loginBtn.disabled = false;
+//             loginBtn.innerText = "Login";
+//         });
+// };
+
+// document.getElementById('demo-user-btn').addEventListener('click', () => {
+//     document.querySelector('input[name="username"]').value = 'demo_user';
+//     document.querySelector('input[name="password"]').value = 'user1234';
+//     document.getElementById('loginForm').dispatchEvent(new Event('submit'));
+// });
+
+// document.getElementById('demo-admin-btn').addEventListener('click', () => {
+//     document.querySelector('input[name="username"]').value = 'demo_admin';
+//     document.querySelector('input[name="password"]').value = 'admin1234';
+//     document.getElementById('loginForm').dispatchEvent(new Event('submit'));
+// });
+
+
+
+
+// const handleLogin = (event) => {
+//     event.preventDefault();
+
+//     const form = document.getElementById("loginForm");
+//     const formData = new FormData(form);
+//     const loginData = {
+//         username: formData.get("username"),
+//         password: formData.get("password"),
+//     };
+
+//     const successAlert = document.getElementById("login-alert-success");
+//     const errorAlert = document.getElementById("login-alert-error");
+//     const spinner = document.getElementById("login-spinner");
+//     const loginBtn = document.querySelector(".btnLogin");
+
+//     successAlert.classList.add("d-none");
+//     errorAlert.classList.add("d-none");
+//     spinner.classList.remove("d-none");
+//     loginBtn.disabled = true;
+//     loginBtn.innerText = "Logging in...";
+
+//     fetch("https://mess-management-system-omega.vercel.app/login/", {
+//         method: "POST",
+//         headers: {
+//             "Content-Type": "application/json",
+//         },
+//         body: JSON.stringify(loginData),
+//     })
+//         .then((response) => {
+//             if (!response.ok) {
+//                 return response.json().then((data) => {
+//                     throw new Error(data.error || "Login failed");
+//                 });
+//             }
+//             return response.json();
+//         })
+//         .then((data) => {
+//             if (!data.token || !data.user_id) {
+//                 throw new Error("Invalid login response from server");
+//             }
+
+//             localStorage.setItem("token", data.token);
+//             localStorage.setItem("user_id", data.user_id);
+
+//             return fetch(
+//                 `https://mess-management-system-omega.vercel.app/users/${data.user_id}/`,
+//                 {
+//                     method: "GET",
+//                     headers: {
+//                         Authorization: `Token ${data.token}`,
+//                     },
+//                 }
+//             );
+//         })
+//         .then((response) => {
+//             if (!response.ok) {
+//                 throw new Error("Failed to fetch user data");
+//             }
+//             return response.json();
+//         })
+//         .then((userData) => {
+//             successAlert.classList.remove("d-none");
+//             successAlert.innerText = "Login successful!";
+//             setTimeout(() => {
+//                 if (userData.user_type === "User") {
+//                     window.location.href = "index.html";
+//                 } else if (userData.user_type === "Admin") {
+//                     window.location.href = "admin/index.html";
+//                 } else {
+//                     throw new Error(`Unexpected user type: ${userData.user_type}`);
+//                 }
+//             }, 1000);
+//         })
+//         .catch((err) => {
+//             errorAlert.classList.remove("d-none");
+//             errorAlert.innerText = err.message || "Login failed. Please try again.";
+//         })
+//         .finally(() => {
+//             spinner.classList.add("d-none");
+//             loginBtn.disabled = false;
+//             loginBtn.innerText = "Login";
+//         });
+// };
+
+
+// const handleLogout = () => {
+//     const token = localStorage.getItem("token");
+//     if (!token) {
+//         console.log("No token found in localStorage");
+//         return;
+//     }
+//     fetch("https://mess-management-system-omega.vercel.app/logout/", {
+//         method: "POST",
+//         headers: {
+//             "Content-Type": "application/json",
+//             Authorization: `Token ${token}`,
+//         },
+//     })
+//         .then((res) => res.json())
+//         .then((data) => {
+//             console.log("Logout response:", data);
+//             localStorage.removeItem("token");
+//             localStorage.removeItem("user_id");
+
+//             window.location.href = "index.html";
+//         })
+//         .catch((err) => console.log("logout error:: ", err));
+// };
+
+
+// Handle standard login
 const handleLogin = (event) => {
     event.preventDefault();
 
@@ -186,6 +399,7 @@ const handleLogin = (event) => {
     const spinner = document.getElementById("login-spinner");
     const loginBtn = document.querySelector(".btnLogin");
 
+    // Reset UI states
     successAlert.classList.add("d-none");
     errorAlert.classList.add("d-none");
     spinner.classList.remove("d-none");
@@ -212,9 +426,11 @@ const handleLogin = (event) => {
                 throw new Error("Invalid login response from server");
             }
 
+            // Save credentials in local storage
             localStorage.setItem("token", data.token);
             localStorage.setItem("user_id", data.user_id);
 
+            // Get user data
             return fetch(
                 `https://mess-management-system-omega.vercel.app/users/${data.user_id}/`,
                 {
@@ -255,6 +471,7 @@ const handleLogin = (event) => {
         });
 };
 
+// Handle logout
 const handleLogout = () => {
     const token = localStorage.getItem("token");
     if (!token) {
@@ -278,3 +495,17 @@ const handleLogout = () => {
         })
         .catch((err) => console.log("logout error:: ", err));
 };
+
+// Demo Login Buttons (Auto-fill + Submit)
+document.getElementById("demo-user-btn").addEventListener("click", () => {
+    document.querySelector('input[name="username"]').value = "demo_user";
+    document.querySelector('input[name="password"]').value = "user1234";
+    document.getElementById("loginForm").dispatchEvent(new Event("submit")); // Trigger login
+});
+
+document.getElementById("demo-admin-btn").addEventListener("click", () => {
+    document.querySelector('input[name="username"]').value = "demo_admin";
+    document.querySelector('input[name="password"]').value = "admin1234";
+    document.getElementById("loginForm").dispatchEvent(new Event("submit")); // Trigger login
+});
+
